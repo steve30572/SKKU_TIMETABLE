@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+      }
+
+      .subject {
+        color: white;
+        text-align: left;
+        vertical-align: top;
+        padding: 10px;
+        border: 0px;
+      }
+
+      .overlap {
+        color: white;
+        font-style: italic;
+        background-image: repeating-linear-gradient(orange, blue 10%);
+        border: 0px;
+      }
+
+      table,
+      th {
+        border: 1px solid black;
+      }
+
+      td {
+        border-bottom: 1px solid #d8d8d8;
+        border-left: 1px solid gray;
+      }
+
+      .bottom {
+        border-bottom: 1px solid gray;
+      }
+
+      table {
+        width: 100%;
+        height: 50%;
+        border-collapse: collapse;
+      }
+    </style>
+
+    <title>My Timetable</title>
+  </head>
+  <div class="wrapper">
+    <body>
+      <button style="float: right" onClick="window.location.reload();">
+        Refresh
+      </button>
+      <br /><br />
+      <div>
+        <table class="center">
+          <thead>
+            <tr>
+              <th width="5%">&nbsp;</th>
+              <th width="19%">mon</th>
+              <th width="19%">tues</th>
+              <th width="19%">wed</th>
+              <th width="19%">thurs</th>
+              <th width="19%">fri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div id="9">
+              <tr>
+                <th rowspan="4">9</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="10">
+              <tr>
+                <th rowspan="4">10</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <!--과목(예시)-->
+                <td class="subject" bgcolor="green" rowspan="5">과목</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <!--<td class="bottom">&nbsp;</td>-->
+              </tr>
+            </div>
+            <div id="11">
+              <tr>
+                <th rowspan="4">11</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="12">
+              <tr>
+                <th rowspan="4">12</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="1">
+              <tr>
+                <th rowspan="4">1</th>
+                <td>&nbsp;</td>
+                <!--겹치는과목(예시)-->
+                <!--과목 1-->
+                <td class="subject" bgcolor="orange" rowspan="2">과목 1</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <!--겹치는부분-->
+                <td class="overlap" rowspan="3"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <!-- <td class="bottom">&nbsp;</td> -->
+              </tr>
+            </div>
+            <div id="2">
+              <tr>
+                <th rowspan="4">2</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <!--과목 2-->
+                <td class="subject" bgcolor="blue" rowspan="2">과목 2</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <!--<td>&nbsp;</td>-->
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="3">
+              <tr>
+                <th rowspan="4">3</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="4">
+              <tr>
+                <th rowspan="4">4</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="5">
+              <tr>
+                <th rowspan="4">5</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="6">
+              <tr>
+                <th rowspan="4">6</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="7">
+              <tr>
+                <th rowspan="4">7</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="8">
+              <tr>
+                <th rowspan="4">8</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+            <div id="9">
+              <tr>
+                <th rowspan="4">9</th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+                <td class="bottom">&nbsp;</td>
+              </tr>
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </body>
+  </div>
+</html>
