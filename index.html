@@ -29,26 +29,30 @@
             <th scope="col">Name</th>
             <th scope="col">Professor</th>
             <th scope="col">Time</th>
+            <th scope="col">Button</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr id="OSS">
             <th scope="row">10</th>
-            <td>OSS</td>
-            <td>Mark</td>
-            <td>1:30~2:45(mon),12:00~1:15(wed)</td>
+            <td class="row-data">OSS</td>
+            <td class="row-data">Mark</td>
+            <td class="row-data">1:30~2:45(mon),12:00~1:15(wed)</td>
+            <td><button class="to_backpack" id="to_backpack" onclick="show()">add</button></td>
           </tr>
-          <tr>
+          <tr id="SP">
             <th scope="row">30</th>
-            <td>System Program</td>
-            <td>Kim</td>
-            <td>9:00~12:00(mon)</td>
+            <td class="row-data">System Program</td>
+            <td class="row-data">Kim</td>
+            <td class="row-data">9:00~12:00(mon)</td>
+            <td><button class="to_backpack"id="to_backpack" onclick="show()">add</button></td>
           </tr>
-          <tr>
+          <tr id="Algo">
             <th scope="row">100</th>
-            <td >Algorithm</td>
-            <td>Lee</td>
-            <td>15:00~16:15(tue),16:30~17:45(thur)</td>
+            <td class="row-data" >Algorithm</td>
+            <td class="row-data">Lee</td>
+            <td class="row-data">15:00~16:15(tue),16:30~17:45(thur)</td>
+            <td><button class="to_backpack"id="to_backpack" onclick="show()">add</button></td>
           </tr>
           
           
@@ -56,6 +60,12 @@
       </table>
     </div>
       <script>
+        function show(){
+          var ID=event.target.parentNode.parentNode.id;
+          var data=document.getElementById(ID).querySelectorAll(".row-data");
+          console.log(data[0].innerHTML);
+          //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
+        }
           function myFunction_Name() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
@@ -97,6 +107,7 @@ function myFunction_Professor() {
       }
     }
   }
+
 }
       </script>
 </body>
