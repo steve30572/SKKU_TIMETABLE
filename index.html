@@ -172,7 +172,18 @@
           var ID=event.target.parentNode.parentNode.id;
           var data=document.getElementById(ID).querySelectorAll(".row-data");
           console.log(data[0].innerHTML);
-          var body=document.querySelector("#backpack");
+          let task={
+              amount:data[0].innerHTML,
+              name: data[1].innerHTML,
+              professor:data[2].innerHTML,
+              time:data[3].innerHTML
+          }
+          const dup=tasks.some(el=>el.name===data[1].innerHTML && el.professor===data[2].innerHTML )
+          if(dup){
+              console.log("dup");
+          }
+          else{
+            var body=document.querySelector("#backpack");
           var tbody=body.getElementsByTagName('tbody')[0];
           console.log(tbody);
           var row=tbody.insertRow(tbody.rows.length);
@@ -186,15 +197,9 @@
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
           button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
-          let task={
-              amount:data[0].innerHTML,
-              name: data[1].innerHTML,
-              professor:data[2].innerHTML,
-              time:data[3].innerHTML
-          }
           tasks.push(task);
           saveTasks();
-
+          }
           //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
 
         }
