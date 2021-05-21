@@ -139,7 +139,8 @@
         let tasks=[];
 
         function saveTasks(){
-            localStorage.setItem("tasks",JSON.stringify(tasks));
+            const data= Array.from(new Set(tasks.map(JSON.stringify))).map(JSON.parse);
+            localStorage.setItem("tasks",JSON.stringify(data));
         }
         function loadTasks(){
             let lastTasks=localStorage.getItem("tasks");
