@@ -111,76 +111,328 @@ function myFunction_Professor() {
 }
       </script>
 </body>
-<!DOCTYPE html>
+
+    
+  <!DOCTYPE html>
 <html>
 
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+	<title>SKKU course enrollment backpack</title>
+	<style>
+		.container {
+			width: 640px;
+		}
+	</style>
+</head>
 <body>
-    <div id = wrap>
-        <div id = left>
-            <div id = all>
-                <div id = search>
-                    <input type = "text" placeholder="검색어 입력">
-                    <button> 검색</button>
-                </div>
-                <table>
-                    <tr> 
-                        <th>과목명 <button> 정렬</button></th>
-                        <th>교수명 <button> 정렬</button></th>
-                        <th>시간 <button> 정렬</button></th>
-                        <th>정원 <button> 정렬</button></th>    
-                    </tr>
-                    <tr> 
-                        <th>과목명 </th>
-                        <th>교수명 </th>
-                        <th>시간 </th>
-                        <th>정원 </th>    
-                    </tr>
-                </table>
-                
-            </div>
-            
-        </div>
+    <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="Search for names..">
+    <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="Search for professors..">
+    <div style="width:100%; height:200px; overflow:auto">
+    <table class="table" id="myTable">
+        <thead>
+          <tr>
+            <th scope="col">Total_amount</th>
+            <th scope="col">Name</th>
+            <th scope="col">Professor</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">10</th>
+            <td>OSS</td>
+            <td>Mark</td>
+            <td>1:30~2:45(mon),12:00~1:15(wed)</td>
+          </tr>
+          <tr>
+            <th scope="row">30</th>
+            <td>System Program</td>
+            <td>Kim</td>
+            <td>9:00~12:00(mon)</td>
+          </tr>
+          <tr>
+            <th scope="row">100</th>
+            <td >Algorithm</td>
+            <td>Lee</td>
+            <td>15:00~16:15(tue),16:30~17:45(thur)</td>
+          </tr>
+          
+          
+        </tbody>
+      </table>
+    </div>
+    <table id="backpack">
+      <thead>
+        <tr>
+          <th> Total_amount    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
+         <th> Name       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
+         <th> Professor <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
+         <th> Time    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td> 10 </td><td> OSS </td><td> Mark </td><td> 1:30 </td><td><button type="button" onclick="deleteRow(this)">X</button></td></tr>
+        <tr><td> 3 </td><td> System Programming </td><td> Kim </td><td> 9:00 </td><td><button type ="button" onclick="deleteRow(this)">X</button></td></tr>
+        <tr><td> 100 </td><td> Algorithm </td><td> Lee </td><td> 15:00 </td><td><button type ="button" onclick="deleteRow(this)">X</button></td></tr>
+      </tbody>
+    </table>
+    
+
+     
+    </div>
+    
+    <script type="text/javascript">
+     function myFunction_Name() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput_Name");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function myFunction_Professor() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput_Professor");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+      var myTable = document.getElementById( "backpack" ); 
+    var replace = replacement( myTable ); 
+    var eventTarget = document.getElementsByClassName('delete')
+    function sortTD( index ){    replace.ascending( index );    } 
+    function reverseTD( index ){    replace.descending( index );    } 
+    function deleteRow(obj){  
+      var tr = obj.parentNode.parentNode;
+     tr.parentNode.removeChild(tr);
+
+}
+      function sortingNumber( a , b ){  
+      
+              if ( typeof a == "number" && typeof b == "number" ) return a - b; 
+      
+              var numA = parseFloat( a ) + ""; 
+              var numB = parseFloat( b ) + ""; 
+      
+              if ( numA == "NaN" || numB == "NaN" || a != numA || b != numB ) return false; 
+      
+              return parseFloat( a ) - parseFloat( b ); 
+      } 
+      
+      function changeForSorting( first , second ){  
+      
+              // 문자열의 복사본 만들기. 
+              var a = first.toString().replace( /[\s\xA0]+/g , " " ); 
+              var b = second.toString().replace( /[\s\xA0]+/g , " " ); 
+      
+              var change = { first : a, second : b }; 
+      
+              if ( a.search( /\d/ ) < 0 || b.search( /\d/ ) < 0 || a.length == 0 || b.length == 0 ) return change; 
+      
+              var unit = 0; 
+              var aNb = a + " " + b; 
+              var numbers = aNb.match( /\d+/g ); // 문자열에 들어있는 숫자 찾기 
+      
+              for ( var x = 0; x < numbers.length; x++ ){ 
+      
+                      var length = numbers[ x ].length; 
+                      if ( unit < length ) unit = length; 
+              } 
+      
+              var addZero = function( string ){
+      
+                      var match = string.match( /^0+/ ); 
+      
+                      if ( string.length == unit ) return ( match == null ) ? string : match + string; 
+      
+                      var zero = "0"; 
+      
+                      for ( var x = string.length; x < unit; x++ ) string = zero + string; 
+      
+                      return ( match == null ) ? string : match + string; 
+              }; 
+      
+              change.first = a.replace( /\d+/g, addZero ); 
+              change.second = b.replace( /\d+/g, addZero ); 
+      
+              return change; 
+      } 
+      
+      
+      function byLocale(){ 
+      
+              var compare = function( a , b ){ 
+      
+                      var sorting = sortingNumber( a , b ); 
+      
+                      if ( typeof sorting == "number" ) return sorting; 
+      
+                      var change = changeForSorting( a , b ); 
+      
+                      var a = change.first; 
+                      var b = change.second; 
+      
+                      return a.localeCompare( b ); 
+              }; 
+      
+              var ascendingOrder = function( a , b ){  return compare( a , b );  }; 
+              var descendingOrder = function( a , b ){  return compare( b , a );  }; 
+      
+              return { ascending : ascendingOrder, descending : descendingOrder }; 
+      } 
+      
+       
+      function replacement( parent ){  
+              var tagName = parent.tagName.toLowerCase(); 
+              if ( tagName == "table" ) parent = parent.tBodies[ 0 ]; 
+              tagName = parent.tagName.toLowerCase(); 
+              if ( tagName == "tbody" ) var children = parent.rows; 
+              else var children = parent.getElementsByTagName( "li" ); 
+      
+              var replace = { 
+                      order : byLocale(), 
+                      index : false, 
+                      array : function(){ 
+                              var array = [ ]; 
+                              for ( var x = 0; x < children.length; x++ ) array[ x ] = children[ x ]; 
+                              return array; 
+                      }(), 
+                      checkIndex : function( index ){ 
+                              if ( index ) this.index = parseInt( index, 10 ); 
+                              var tagName = parent.tagName.toLowerCase(); 
+                              if ( tagName == "tbody" && ! index ) this.index = 0; 
+                      }, 
+                      getText : function( child ){ 
+                              if ( this.index ) child = child.cells[ this.index ]; 
+                              return getTextByClone( child ); 
+                      }, 
+                      setChildren : function(){ 
+                              var array = this.array; 
+                              while ( parent.hasChildNodes() ) parent.removeChild( parent.firstChild ); 
+                              for ( var x = 0; x < array.length; x++ ) parent.appendChild( array[ x ] ); 
+                      }, 
+                      ascending : function( index ){
+                              this.checkIndex( index ); 
+                              var _self = this; 
+                              var order = this.order; 
+                              var ascending = function( a, b ){ 
+                                      var a = _self.getText( a ); 
+                                      var b = _self.getText( b ); 
+                                      return order.ascending( a, b ); 
+                              }; 
+                              this.array.sort( ascending ); 
+                              this.setChildren(); 
+                      }, 
+                      descending : function( index ){
+                              this.checkIndex( index ); 
+                              var _self = this; 
+                              var order = this.order; 
+                              var descending = function( a, b ){ 
+                                      var a = _self.getText( a ); 
+                                      var b = _self.getText( b ); 
+                                      return order.descending( a, b ); 
+                              }; 
+                              this.array.sort( descending ); 
+                              this.setChildren(); 
+                      } 
+              }; 
+              return replace; 
+      } 
+      
+      function getTextByClone( tag ){  
+              var clone = tag.cloneNode( true ); 
+              var br = clone.getElementsByTagName( "br" ); 
+              while ( br[0] ){ 
+                      var blank = document.createTextNode( " " ); 
+                      clone.insertBefore( blank , br[0] ); 
+                      clone.removeChild( br[0] ); 
+              } 
+              var isBlock = function( tag ){ 
+                      var display = ""; 
+                      if ( window.getComputedStyle ) display = window.getComputedStyle ( tag, "" )[ "display" ]; 
+                      else display = tag.currentStyle[ "display" ]; 
+                      return ( display == "block" ) ? true : false; 
+              }; 
+              var children = clone.getElementsByTagName( "*" ); 
+              for ( var x = 0; x < children.length; x++){ 
+                      var child = children[ x ]; 
+                      if ( ! ("value" in child) && isBlock(child) ) child.innerHTML = child.innerHTML + " "; 
+              } 
+              var textContent = ( "textContent" in clone ) ? clone.textContent : clone.innerText; 
+              return textContent; 
+      } 
+
+    $(document).ready(function() {
+   $('th').each(function (column) {
+      $(this).click(function() {
+              if($(this).is('.asc')) {
+                  $(this).removeClass('asc');
+                  $(this).addClass('desc');
+                  sortdir=-1;                
+              } else {
+                 $(this).addClass('asc');
+                 $(this).removeClass('desc'); 
+                 sortdir=1;
+              }
+              $(this).siblings().removeClass('asc');
+              $(this).siblings().removeClass('desc');
+             var rec = $('table').find('tbody>tr').get();
+             rec.sort(function (a, b) {
+                  var val1 = $(a).children('td').eq(column).text().toUpperCase();
+                  var val2 = $(b).children('td').eq(column).text().toUpperCase();
+      return (val1 < val2)?-sortdir:(val1>val2)?sortdir:0;
+             });
+             $.each(rec, function(index, row) {
+                  $('tbody').append(row);
+               });
+         });
+     });
+});
 
 
-        <div id = right>
-            <div id = pack>
-                <table>
-                    <tr>
-                        <th>과목명 <button> 정렬</button></th>
-                        <th>교수명 <button> 정렬</button></th>
-                        <th>시간 <button> 정렬</button></th>
-                        <th>정원 <button> 정렬</button></th>
-                    </tr>
-                    <tr> 
-                        <th>과목명 </th>
-                        <th>교수명 </th>
-                        <th>시간 </th>
-                        <th>정원 </th>    
-                    </tr>
-                </table>
-                
-            </div>
-            <hr>
-            <div id = wrong>
-                <table>
-                    <tr>
-                        <th>과목명 <button> 정렬</button></th>
-                        <th>교수명 <button> 정렬</button></th>
-                        <th>시간 <button> 정렬</button></th>
-                        <th>정원 <button> 정렬</button></th>    
-                    </tr>
-                    <tr> 
-                        <th>과목명 </th>
-                        <th>교수명 </th>
-                        <th>시간 </th>
-                        <th>정원 </th>    
-                    </tr>
-                </table>
-            </div>
 
-            <a href="timeTable.html" target="_blank"">그림으로 보기</a>
-
-        </div>
+      </script>
+</body>  
+    
+    
+    
+    
                                                      <div id="overlap">
           <br /><br />
           <div id="overlapMessage"></div>
