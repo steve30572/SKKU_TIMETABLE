@@ -181,6 +181,60 @@ function myFunction_Professor() {
             <a href="timeTable.html" target="_blank"">그림으로 보기</a>
 
         </div>
+                                                     <div id="overlap">
+          <br /><br />
+          <div id="overlapMessage"></div>
+          <script>
+            //예시 과목들 (localstorage에서 불러올 예정)
+            let subject2 = {
+              name: "과목 2",
+              day: 2,
+              startTime: 13,
+              length: 0.5,
+            };
+
+            let subject3 = {
+              name: "과목 3",
+              day: 2,
+              startTime: 14.25,
+              length: 0.5,
+            };
+            let tableSubjects = [subject1, subject2];
+
+            let overlapped = 0;
+            for (let i = 0; i < tableSubjects.length; i++) {
+              for (let j = i + 1; j < tableSubjects.length; j++) {
+                //겹치는 조건 확인
+                if (
+                  tableSubjects[i].startTime <
+                    tableSubjects[j].startTime + tableSubjects[j].length &&
+                  tableSubjects[i].startTime + tableSubjects[i].length >
+                    tableSubjects[j].startTime
+                ) {
+                  if (overlapped == 0) {
+                    let overlappedMessage = document.createElement("span");
+                    overlappedMessage.textContent =
+                      "시간이 겹치는 과목이 있습니다.";
+                    document
+                      .querySelector("#overlapMessage")
+                      .appendchild("overlappedMessage");
+                    overlapped++;
+                  }
+                  //겹친다는 메세지 생성
+                  let newOverlapMessage = document.createElement("span");
+                  let br = document.createElement("br");
+                  newOverlapMessage.textContent =
+                    tableSubjects[i].name + "," + tableSubjects[j].name;
+                  //메세지 추가
+                  document.querySelector("#overlapMessage").appendchild("br");
+                  document
+                    .querySelector("#overlapMessage")
+                    .appendchild("newOverlapMessage");
+                }
+              }
+            }
+          </script>
+        </div>
     </div>
 </body>
 
