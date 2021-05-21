@@ -132,12 +132,41 @@
       </table>
     </div>
       <script>
-        function saveTasks(){
+        window.addEventListener("load",()=>{
+            loadTasks();
+        })
+        
+        let tasks=[];
 
+        function saveTasks(){
+            localStorage.setItem("tasks",JSON.stringify(tasks));
         }
         function loadTasks(){
-
+            let lastTasks=localStorage.getItem("tasks");
+            
+            if(!lastTasks) return;
+            tasks=JSON.parse(lastTasks);
+            
+            tasks.forEach(addtobp);
           }
+        function addtobp(T){
+          var body=document.querySelector("#backpack");
+          var tbody=body.getElementsByTagName('tbody')[0];
+          var row=tbody.insertRow(tbody.rows.length);
+          var amount=row.insertCell(0);
+          var course_name=row.insertCell(1);
+          var professor_name=row.insertCell(2);
+          var class_time=row.insertCell(3);
+          var button=row.insertCell(4);
+          console.log("this is T")
+          console.log(T);
+          amount.innerHTML=T["amount"];
+          course_name.innerHTML=T["name"];
+          professor_name.innerHTML=T["professor"];
+          class_time.innerHTML=T['time'];
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+
+        }
         function show(){
           var ID=event.target.parentNode.parentNode.id;
           var data=document.getElementById(ID).querySelectorAll(".row-data");
@@ -156,8 +185,17 @@
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
           button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+          let task={
+              amount:data[0].innerHTML,
+              name: data[1].innerHTML,
+              professor:data[2].innerHTML,
+              time:data[3].innerHTML
+          }
+          tasks.push(task);
+          saveTasks();
+
           //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
-          
+
         }
           function myFunction_Name() {
   // Declare variables
