@@ -199,37 +199,42 @@ function myFunction_Professor() {
               startTime: 14.25,
               length: 0.5,
             };
-            let tableSubjects = [subject1, subject2];
+            let tableSubjects = [subject2, subject3];
 
             let overlapped = 0;
-            for (let i = 0; i < tableSubjects.length; i++) {
-              for (let j = i + 1; j < tableSubjects.length; j++) {
-                //겹치는 조건 확인
-                if (
-                  tableSubjects[i].startTime <
-                    tableSubjects[j].startTime + tableSubjects[j].length &&
-                  tableSubjects[i].startTime + tableSubjects[i].length >
-                    tableSubjects[j].startTime
-                ) {
-                  if (overlapped == 0) {
-                    let overlappedMessage = document.createElement("span");
-                    overlappedMessage.textContent =
-                      "시간이 겹치는 과목이 있습니다.";
-                    document
-                      .querySelector("#overlapMessage")
-                      .appendchild("overlappedMessage");
-                    overlapped++;
+            let messagespace = document.querySelector("#overlapMessage"); 
+            
+               window.addEventListener("load", () => {
+              checkOverlap();
+            });
+            function checkOverlap() {
+              console.log("sadfj");
+              let messagespace = document.querySelector("#overlapMessage");
+              for (let i = 0; i < tableSubjects.length; i++) {
+                for (let j = i + 1; j < tableSubjects.length; j++) {
+                  //겹치는 조건 확인
+                  if (
+                    tableSubjects[i].startTime <
+                      tableSubjects[j].startTime + tableSubjects[j].length &&
+                    tableSubjects[i].startTime + tableSubjects[i].length >
+                      tableSubjects[j].startTime
+                  ) {
+                    if (overlapped == 0) {
+                      let overlappedMessage = document.createElement("span");
+                      overlappedMessage.textContent =
+                        "시간이 겹치는 과목이 있습니다.";
+                      messagespace.appendChild(overlappedMessage);
+                      overlapped++;
+                    }
+                    //겹친다는 메세지 생성
+                    let newOverlapMessage = document.createElement("span");
+                    let br = document.createElement("br");
+                    newOverlapMessage.textContent =
+                      tableSubjects[i].name + "," + tableSubjects[j].name;
+                    //메세지 추가
+                    messagespace.appendChild(br);
+                    messagespace.appendChild(newOverlapMessage);
                   }
-                  //겹친다는 메세지 생성
-                  let newOverlapMessage = document.createElement("span");
-                  let br = document.createElement("br");
-                  newOverlapMessage.textContent =
-                    tableSubjects[i].name + "," + tableSubjects[j].name;
-                  //메세지 추가
-                  document.querySelector("#overlapMessage").appendchild("br");
-                  document
-                    .querySelector("#overlapMessage")
-                    .appendchild("newOverlapMessage");
                 }
               }
             }
