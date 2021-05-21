@@ -19,40 +19,40 @@
 	</style>
 </head>
 <body>
-    <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="Search for names..">
-    <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="Search for professors..">
+    <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="과목명으로 검색">
+    <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="교수명으로 검색">
     <div style="width:100%; height:200px; overflow:auto">
     <table class="table" id="myTable">
         <thead>
           <tr>
-            <th scope="col">Total_amount</th>
-            <th scope="col">Name</th>
-            <th scope="col">Professor</th>
-            <th scope="col">Time</th>
-            <th scope="col">Button</th>
+            <th scope="col">총 정원</th>
+            <th scope="col">과목명</th>
+            <th scope="col">교수명</th>
+            <th scope="col">수업시간</th>
+            <th scope="col">추가하기</th>
           </tr>
         </thead>
         <tbody>
           <tr id="OSS">
             <th scope="row">10</th>
-            <td class="row-data">OSS</td>
+            <td class="row-data">오픈소스실습</td>
             <td class="row-data">Mark</td>
-            <td class="row-data">1:30~2:45(mon),12:00~1:15(wed)</td>
-            <td><button class="to_backpack" onclick="show()">add</button></td>
+            <td class="row-data">1:30~2:45(월),12:00~1:15(수)</td>
+            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SP">
             <th scope="row">30</th>
-            <td class="row-data">System Program</td>
+            <td class="row-data">시스템 프로그램</td>
             <td class="row-data">Kim</td>
-            <td class="row-data">9:00~12:00(mon)</td>
-            <td><button class="to_backpack" onclick="show()">add</button></td>
+            <td class="row-data">9:00~12:00(월)</td>
+            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Algo">
             <th scope="row">100</th>
-            <td class="row-data" >Algorithm</td>
+            <td class="row-data" >알고리즘개론</td>
             <td class="row-data">Lee</td>
-            <td class="row-data">15:00~16:15(tue),16:30~17:45(thur)</td>
-            <td><button class="to_backpack" onclick="show()">add</button></td>
+            <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
+            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           
           
