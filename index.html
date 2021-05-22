@@ -248,12 +248,6 @@ function myFunction_Professor() {
 }
       </script>
 </body>
-
-    
-  <!DOCTYPE html>
-<html>
-
-
 <body>
     </div>
     <table id="backpack">
@@ -265,11 +259,7 @@ function myFunction_Professor() {
          <th> Time    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
         </tr>
       </thead>
-      <tbody>
-        <tr><td> 10 </td><td> OSS </td><td> Mark </td><td> 1:30 </td><td><button type="button" onclick="deleteRow(this)">X</button></td></tr>
-        <tr><td> 3 </td><td> System Programming </td><td> Kim </td><td> 9:00 </td><td><button type ="button" onclick="deleteRow(this)">X</button></td></tr>
-        <tr><td> 100 </td><td> Algorithm </td><td> Lee </td><td> 15:00 </td><td><button type ="button" onclick="deleteRow(this)">X</button></td></tr>
-      </tbody>
+      <tbody></tbody>
     </table>
     
 
@@ -277,48 +267,6 @@ function myFunction_Professor() {
     </div>
     
     <script type="text/javascript">
-     function myFunction_Name() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput_Name");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-function myFunction_Professor() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput_Professor");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
       var myTable = document.getElementById( "backpack" ); 
     var replace = replacement( myTable ); 
     var eventTarget = document.getElementsByClassName('delete')
@@ -327,7 +275,7 @@ function myFunction_Professor() {
     function deleteRow(obj){  
       var tr = obj.parentNode.parentNode;
      tr.parentNode.removeChild(tr);
-
+     tasks.pop(tr); saveTasks();
 }
       function sortingNumber( a , b ){  
       
