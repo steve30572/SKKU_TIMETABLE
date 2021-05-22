@@ -273,9 +273,10 @@ function myFunction_Professor() {
     function sortTD( index ){    replace.ascending( index );    } 
     function reverseTD( index ){    replace.descending( index );    } 
     function deleteRow(obj){  
+        manageoverlap(); 
       var tr = obj.parentNode.parentNode;
      tr.parentNode.removeChild(tr);
-     tasks.pop(tr); saveTasks();
+     tasks.pop(tr); saveTasks(); 
 }
       function sortingNumber( a , b ){  
       
