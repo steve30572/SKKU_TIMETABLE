@@ -278,8 +278,19 @@ function myFunction_Professor() {
     function deleteRow(obj){  
         manageOverlap(); 
       var tr = obj.parentNode.parentNode;
-     tr.parentNode.removeChild(tr);
-     tasks.pop(tr); saveTasks(); 
+     
+      tr.parentNode.removeChild(tr);
+     let task={
+       amount: tr.cells[0].innerHTML,
+       name: tr.cells[1].innerHTML,
+       professor: tr.cells[2].innerHTML,
+       time: tr.cells[3].innerHTML
+     };
+     console.log(task);
+
+     tasks = tasks.filter(t => t.name !== task.name || t.amount !== task.amount || t.professor !== task.professor || t.time !==task.time);
+     //tasks.pop(tr); 
+     saveTasks(); 
 }
       function sortingNumber( a , b ){  
       
