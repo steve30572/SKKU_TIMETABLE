@@ -37,7 +37,7 @@
             <th scope="row" class="row-data">10</th>
             <td class="row-data">오픈소스실습</td>
             <td class="row-data">Mark</td>
-            <td class="row-data">1:30~2:45(월),12:00~1:15(수)</td>
+            <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
             <td><button class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SP">
@@ -172,7 +172,18 @@
           var ID=event.target.parentNode.parentNode.id;
           var data=document.getElementById(ID).querySelectorAll(".row-data");
           console.log(data[0].innerHTML);
-          var body=document.querySelector("#backpack");
+          let task={
+              amount:data[0].innerHTML,
+              name: data[1].innerHTML,
+              professor:data[2].innerHTML,
+              time:data[3].innerHTML
+          }
+          const dup=tasks.some(el=>el.name===data[1].innerHTML && el.professor===data[2].innerHTML )
+          if(dup){
+              console.log("dup");
+          }
+          else{
+            var body=document.querySelector("#backpack");
           var tbody=body.getElementsByTagName('tbody')[0];
           console.log(tbody);
           var row=tbody.insertRow(tbody.rows.length);
@@ -186,15 +197,9 @@
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
           button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
-          let task={
-              amount:data[0].innerHTML,
-              name: data[1].innerHTML,
-              professor:data[2].innerHTML,
-              time:data[3].innerHTML
-          }
           tasks.push(task);
           saveTasks();
-
+          }
           //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
 
         }
@@ -243,28 +248,6 @@ function myFunction_Professor() {
 }
       </script>
 </body>
-
-    
-  <!DOCTYPE html>
-<html>
-
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-
-	<title>SKKU course enrollment backpack</title>
-	<style>
-		.container {
-			width: 640px;
-		}
-	</style>
-</head>
 <body>
     </div>
     <table id="backpack">
@@ -276,57 +259,14 @@ function myFunction_Professor() {
          <th> Time    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
         </tr>
       </thead>
-      <tbody>
-      </tbody>
+      <tbody></tbody>
     </table>
     
 
-    <a href="timeTable.html" target="_blank">그림으로 보기</a>
+     
     </div>
     
     <script type="text/javascript">
-     function myFunction_Name() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput_Name");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-function myFunction_Professor() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput_Professor");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
       var myTable = document.getElementById( "backpack" ); 
     var replace = replacement( myTable ); 
     var eventTarget = document.getElementsByClassName('delete')
@@ -335,7 +275,7 @@ function myFunction_Professor() {
     function deleteRow(obj){  
       var tr = obj.parentNode.parentNode;
      tr.parentNode.removeChild(tr);
-
+     tasks.pop(tr); saveTasks();
 }
       function sortingNumber( a , b ){  
       
@@ -527,83 +467,82 @@ function myFunction_Professor() {
     
     
     
-        <div id="overlap">
-        <br /><br />
-        <div id="overlapMessage"></div>
-        <script>
+                                                     <div id="overlap">
+          <br /><br />
+          <div id="overlapMessage"></div>
+          <script>
             let overlapped = 0;
-            let messagespace = document.querySelector("#overlapMessage");
+            let messagespace = document.querySelector("#overlapMessage"); 
             let lastTasks;
 
             let newSubject;
 
             let tableSubjects=[];
 
-            window.addEventListener("load", () => {
-
-               manageOverlap();
-
+            
+               window.addEventListener("load", () => {
+              manageOverlap();
             });
-
             function setTableSubjects(subject){
 
-              let times=subject.time.split(",");
-              newSubject= {
+            let times=subject.time.split(",");
+            newSubject= {
                 name,
                 day: [],
                 startTime: [],
                 endTime: [],
                 length: [],
             };
-              newSubject.name=subject.name;
-              times.forEach(getTime);
-              
-              tableSubjects.push(newSubject);
+            newSubject.name=subject.name;
+            times.forEach(getTime);
+
+            tableSubjects.push(newSubject);
             }
 
             function getTime(strTime){
 
-              let day=strTime.split('(').pop();
-              let time=strTime.split('(')[0];
-              time=time.split("~");
-              let startTime=+time[0].split(':')[0]+(+time[0].split(':').pop())/(60.0);
-              let endTime=+time[1].split(':')[0]+(+time[1].split(':').pop())/(60.0);
-              console.log(startTime);
-              newSubject.day.push(+convertDay(day));
-              newSubject.startTime.push(startTime);
-              newSubject.endTime.push(endTime);
-              newSubject.length.push(endTime-startTime);
-              
+            let day=strTime.split('(').pop();
+            let time=strTime.split('(')[0];
+            time=time.split("~");
+            let startTime=+time[0].split(':')[0]+(+time[0].split(':').pop())/(60.0);
+            let endTime=+time[1].split(':')[0]+(+time[1].split(':').pop())/(60.0);
+            console.log(startTime);
+            newSubject.day.push(+convertDay(day));
+            newSubject.startTime.push(startTime);
+            newSubject.endTime.push(endTime);
+            newSubject.length.push(endTime-startTime);
+
+        }
+
+        function convertDay(day){
+        switch(day){
+            case "월)":
+                return 1;
+            case "화)":
+                return 2;
+            case "수)":
+                return 3;
+            case "목)":
+                return 4;
+            case "금)":
+                return 5;
+            }
+        }
+
+
+        function manageOverlap() {
+            //불러오기 
+            lastTasks=localStorage.getItem("tasks");
+            if(!!lastTasks){
+                lastTasks=JSON.parse(lastTasks);  
+                lastTasks.forEach(setTableSubjects);
+                const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
+                localStorage.setItem("table subjects",JSON.stringify(data));
+                console.log(lastTasks);
+                console.log(tableSubjects);
             }
 
-            function convertDay(day){
-              switch(day){
-                case "월)":
-                  return 1;
-                case "화)":
-                  return 2;
-                case "수)":
-                  return 3;
-                case "목)":
-                  return 4;
-                case "금)":
-                  return 5;
-              }
-            }
- 
-
-            function manageOverlap() {
-                //불러오기 
-                lastTasks=localStorage.getItem("tasks");
-                if(!!lastTasks){
-                    lastTasks=JSON.parse(lastTasks);  
-                    lastTasks.forEach(setTableSubjects);
-                    const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
-                    localStorage.setItem("table subjects",JSON.stringify(data));
-                    console.log(lastTasks);
-                    console.log(tableSubjects);
-                }
-
+            
               let messagespace = document.querySelector("#overlapMessage");
               for (let i = 0; i < tableSubjects.length; i++) {
                 for (let j = i + 1; j < tableSubjects.length; j++) {
@@ -611,7 +550,8 @@ function myFunction_Professor() {
                   if (checkOverlap(tableSubjects[i],tableSubjects[j])) {
                     if (overlapped == 0) {
                       let overlappedMessage = document.createElement("span");
-                      overlappedMessage.textContent ="수업시간이 겹치는 과목이 있습니다.";
+                      overlappedMessage.textContent =
+                        "수업시간이 겹치는 과목이 있습니다.";
                       messagespace.appendChild(overlappedMessage);
                       overlapped++;
                     }
@@ -627,7 +567,6 @@ function myFunction_Professor() {
                 }
               }
             }
-
             function checkOverlap(subject1,subject2){
             let result=false;
               for(let i=0;i<subject1.day.length;i++){
