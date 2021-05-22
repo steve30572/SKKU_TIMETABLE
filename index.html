@@ -141,6 +141,7 @@
         function saveTasks(){
             const data= Array.from(new Set(tasks.map(JSON.stringify))).map(JSON.parse);
             localStorage.setItem("tasks",JSON.stringify(data));
+            manageOverlap();
         }
         function loadTasks(){
             let lastTasks=localStorage.getItem("tasks");
@@ -166,6 +167,7 @@
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
           button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+          //manageOverlap();
 
         }
         function show(){
@@ -199,6 +201,7 @@
           button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
           tasks.push(task);
           saveTasks();
+          //manageOverlap();
           }
           //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
 
@@ -273,7 +276,7 @@ function myFunction_Professor() {
     function sortTD( index ){    replace.ascending( index );    } 
     function reverseTD( index ){    replace.descending( index );    } 
     function deleteRow(obj){  
-        manageoverlap(); 
+        manageOverlap(); 
       var tr = obj.parentNode.parentNode;
      tr.parentNode.removeChild(tr);
      tasks.pop(tr); saveTasks(); 
@@ -539,12 +542,15 @@ function myFunction_Professor() {
                 lastTasks.forEach(setTableSubjects);
                 const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
                 localStorage.setItem("table subjects",JSON.stringify(data));
-                console.log(lastTasks);
-                console.log(tableSubjects);
+                //console.log(lastTasks);
+                //console.log(tableSubjects);
             }
 
-            
+              
               let messagespace = document.querySelector("#overlapMessage");
+              console.log(tableSubjects);
+             
+              //messagespace.innerHTML="";
               for (let i = 0; i < tableSubjects.length; i++) {
                 for (let j = i + 1; j < tableSubjects.length; j++) {
                   //겹치는 조건 확인
