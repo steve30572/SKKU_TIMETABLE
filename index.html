@@ -186,7 +186,7 @@
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
-          priority.innerHTML=`<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;" value= ${T["priority"]}> `;
+          priority.innerHTML=`<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;" onkeydown="JavaScript:enterkey(this);"value= ${T["priority"]}> `;
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           //manageOverlap();
 
@@ -223,7 +223,7 @@
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
-          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  value = "0"   >';
+          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  value = "0" onkeyup="if(window.event.keyCode==13){enterkey(this)}"  >';
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
           tasks.push(task);
           saveTasks();
@@ -284,11 +284,11 @@ function myFunction_Professor() {
     <table id="backpack" table class = "table table-striped">
       <thead>
         <tr>
-          <th> 총 정원    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
-         <th> 과목명       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
-         <th> 교수명 <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
-         <th> 수업시간    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
-         <th> 우선순위<button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+          <th> 경쟁률    <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
+         <th> 과목명       <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
+         <th> 교수명 </th>
+         <th> 수업시간   </th>
+         <th> 우선순위<button onclick="sortTD ( 4 )">▲</button><button onclick="reverseTD ( 4 )">▼</button></th>
         </tr>
       </thead>
       <tbody>
@@ -300,7 +300,6 @@ function myFunction_Professor() {
     
     <script type="text/javascript">
        var myTable = document.getElementById( "backpack" ); 
-    var replace = replacement( myTable ); 
     var eventTarget = document.getElementsByClassName('delete')
     function sortTD( index ){   sortTable('backpack',index);     } 
     function reverseTD( index ){    sortTable('backpack',index,true);   } 
@@ -321,7 +320,28 @@ function myFunction_Professor() {
      //tasks.pop(tr); 
      saveTasks(); 
 }
+function enterkey(obj){
+    let text = obj.value;
+    if (!text.length) return;
+    manageOverlap(); 
+    var tr = obj.parentNode.parentNode;
+       let task={
+         amount: tr.cells[0].innerHTML,
+         name: tr.cells[1].innerHTML,
+         professor: tr.cells[2].innerHTML,
+         time: tr.cells[3].innerHTML,
+         priority: text
+       };
+       console.log(task);
+  
+       tasks = tasks.filter(t => t.name !== task.name || t.professor !== task.professor || t.time !==task.time);
+       tasks.push(task);
+       //tasks.pop(tr); 
+       saveTasks(); 
+}
+
 function sortTable(tblID, col, desc) {
+
     var table, rows, switching, i, x, y, shouldSwitch;
     col = (col || 0);
     table = document.getElementById(tblID);
@@ -333,6 +353,10 @@ function sortTable(tblID, col, desc) {
         shouldSwitch = false;
         x = rows[i].getElementsByTagName("TD")[col];
         y = rows[i + 1].getElementsByTagName("TD")[col];
+        if(col=== 4){
+          x = $('#backpack tr').eq(i).find('input[id="myInput_Priority"]').val();
+          y = $('#backpack tr').eq(i+1).find('input[id="myInput_Priority"]').val();
+        }
         if ((desc)? x.textContent.toLowerCase() < y.textContent.toLowerCase() : x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
           shouldSwitch = true;
           break;
@@ -344,8 +368,6 @@ function sortTable(tblID, col, desc) {
       }
     }
   }
- 
-
 
 
 
