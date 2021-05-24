@@ -26,7 +26,8 @@ There are many ways in which you can participate in the project, for example:
 
 ## Feedback
 * Ask a question on [Stack Overflow](https://stackoverflow.com)
-* [File an issue](https://github.com/steve30572/SKKU_TIMETABLE/issues)
+* [File an issue](https://github.com/steve30572/SKKU_TIMETABLE/issues). 
+* There are two labels in issues we made which are "testing" and "unnecessary". Feel free to use our labels
 
 ## Code of Conduct
 Code of Conduct is Contributor Covenant Code of Conduct
