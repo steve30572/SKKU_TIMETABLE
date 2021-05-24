@@ -502,7 +502,9 @@
                     let iterate = Array.isArray(subject.day)
                         ? subject.day.length
                         : 1;
-
+                    if (!subject.name.includes(",")) {
+                        setColor();
+                    }
                     for (let i = 0; i < iterate; i++) {
                         console.log(subject.name);
                         let startTr =
@@ -512,7 +514,6 @@
                             //과목 만들기
                             let newTd = document.createElement("td");
                             if (!subject.name.includes(",")) {
-                                setColor();
                                 newTd.setAttribute("class", "subject");
                                 newTd.setAttribute("bgcolor", color);
                                 newTd.setAttribute("rowspan", rowSpan);
