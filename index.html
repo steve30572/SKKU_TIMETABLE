@@ -186,7 +186,7 @@
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
-          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  >';
+          priority.innerHTML=`<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;" value= ${T["priority"]}> `;
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           //manageOverlap();
 
@@ -200,7 +200,8 @@
               amount:priority,
               name: data[1].innerHTML,
               professor:data[2].innerHTML,
-              time:data[3].innerHTML
+              time:data[3].innerHTML,
+              priority: '0'
           }
           const dup=tasks.some(el=>el.name===data[1].innerHTML && el.professor===data[2].innerHTML )
           if(dup){
@@ -222,7 +223,7 @@
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
-          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  >';
+          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  value = "0"   >';
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
           tasks.push(task);
           saveTasks();
