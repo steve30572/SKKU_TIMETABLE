@@ -8,7 +8,9 @@ SKKU course enrollment backpack website supports to see the whole course list wi
 Check our website by clicking [HERE](https://steve30572.github.io/SKKU_TIMETABLE/)
 
 ## Initial Screen
-IMAGE NEEDED//////////////////////////
+<p align="center">
+  <img alt="Website inital screen" src="Initial Screen.PNG">
+</p>
 
 ## Examples
 If user adds 오픈소스실습 and 영어쓰기 to their backpack, our Website returns that those 2 course time is overlapping.
@@ -26,7 +28,7 @@ There are many ways in which you can participate in the project, for example:
 * Ask a question on [Stack Overflow](https://stackoverflow.com)
 * [File an issue](https://github.com/steve30572/SKKU_TIMETABLE/issues)
 
-## Code of Conduct
+## Code of Conductm
 Code of Conduct is Contributor Covenant Code of Conduct
 Check our Code of Conduct on our repository [CODE_OF_CONDUCT](https://github.com/steve30572/SKKU_TIMETABLE/blob/master/CODE_OF_CONDUCT.md)
 
