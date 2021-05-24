@@ -16,12 +16,30 @@
 		.container {
 			width: 640px;
 		}
+        #all_subject{
+           width:46%;height:680px;float:left;  overflow:auto;border: 1px solid #000; border-radius: 10px;
+        }
+        #back_pack{
+            width: 54%;height:400px;float:right;  overflow:auto;border: 1px solid #000; border-radius: 10px;
+        }
+        #overlap{
+            width: 54%;height:220px;float:right;  overflow:auto;border: 1px solid #000; border-radius: 10px;
+        }
+        #link_graph{
+          width: 90%;
+        }
 	</style>
 </head>
 <body>
-    <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="과목명으로 검색">
-    <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="교수명으로 검색">
-    <div style="width:100%; height:200px; overflow:auto">
+    <div id = all_subject>
+        <div class="row">
+            <div class="col">
+                <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="과목명으로 검색" class="form-control"  >
+            </div>
+            <div class="col">
+                <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="교수명으로 검색" class="form-control"  >
+            </div>
+          </div>
     <table class="table" id="myTable">
         <thead>
           <tr>
@@ -38,91 +56,91 @@
             <td class="row-data">오픈소스실습</td>
             <td class="row-data">Mark</td>
             <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SP">
             <th scope="row" class="row-data">30</th>
             <td class="row-data">시스템 프로그램</td>
             <td class="row-data">Kim</td>
             <td class="row-data">9:00~12:00(월)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Algo">
             <th scope="row" class="row-data">100</th>
             <td class="row-data" >알고리즘개론</td>
             <td class="row-data">Lee</td>
             <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="EW">
             <th scope="row" class="row-data">20</th>
             <td class="row-data">영어쓰기</td>
             <td class="row-data">Jack</td>
             <td class="row-data">12:00~14:45(월)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SWE">
             <th scope="row" class="row-data">80</th>
             <td class="row-data">소프트웨어공학개론</td>
             <td class="row-data">Park</td>
             <td class="row-data">12:00~15:00(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="DB">
             <th scope="row" class="row-data">90</th>
             <td class="row-data">데이터베이스</td>
             <td class="row-data">Phil</td>
             <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SD">
             <th scope="row" class="row-data">40</th>
             <td class="row-data">스피치와토론</td>
             <td class="row-data">Kate</td>
             <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="physics">
             <th scope="row" class="row-data">56</th>
             <td class="row-data">일반물리학1</td>
             <td class="row-data">Vray</td>
             <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Calculus">
             <th scope="row" class="row-data">75</th>
             <td class="row-data">미적분학1</td>
             <td class="row-data">James</td>
             <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Chemis">
             <th scope="row" class="row-data">60</th>
             <td class="row-data">일반화학1</td>
             <td class="row-data">Kyle</td>
             <td class="row-data">12:00~15:00(금)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Structure">
             <th scope="row" class="row-data">40</th>
             <td class="row-data">자료구조개론</td>
             <td class="row-data">Jamal</td>
             <td class="row-data">9:00~12:00(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="CN">
             <th scope="row" class="row-data">82</th>
             <td class="row-data">컴퓨터네트워크개론</td>
             <td class="row-data">Bob</td>
             <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="sw">
             <th scope="row" class="row-data">50</th>
             <td class="row-data">과학기술글쓰기</td>
             <td class="row-data">Charles</td>
             <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           
           
@@ -131,6 +149,7 @@
         </tbody>
       </table>
     </div>
+    
       <script>
         window.addEventListener("load",()=>{
             loadTasks();
@@ -166,7 +185,7 @@
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
-          button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           //manageOverlap();
 
         }
@@ -198,7 +217,7 @@
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
-          button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           tasks.push(task);
           saveTasks();
           //manageOverlap();
@@ -252,20 +271,22 @@ function myFunction_Professor() {
       </script>
 </body>
 <body>
-    </div>
-    <table id="backpack">
+    <hr>
+    <div id="back_pack">
+
+    <table id="backpack" table class = "table table-striped">
       <thead>
         <tr>
-          <th> Total_amount    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
-         <th> Name       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
-         <th> Professor <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
-         <th> Time    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+          <th> 총 정원    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
+         <th> 과목명       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
+         <th> 교수명 <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
+         <th> 수업시간    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+      </tbody>
     </table>
     
-    <a href="timeTable.html" target="_blank"">그림으로 보기</a>
      
     </div>
     
@@ -325,9 +346,8 @@ function sortTable(tblID, col, desc) {
     
     
     
-    
-                                                     <div id="overlap">
-          <br /><br />
+    <div id="overlap" class="p-3 mb-2 bg-light text-dark">
+        <h2>겹치는 과목</h2>
           <div id="overlapMessage"></div>
           <script>
             let overlapped = 0;
@@ -412,8 +432,7 @@ function sortTable(tblID, col, desc) {
                   if (checkOverlap(tableSubjects[i],tableSubjects[j])) {
                     if (overlapped == 0) {
                       let overlappedMessage = document.createElement("span");
-                      overlappedMessage.textContent =
-                        "수업시간이 겹치는 과목이 있습니다.";
+                      overlappedMessage.textContent =""
                       messagespace.appendChild(overlappedMessage);
                       overlapped++;
                     }
@@ -473,6 +492,11 @@ function sortTable(tblID, col, desc) {
           </script>
         </div>
     </div>
+</body>
+<body>
+  <div id ="link_graph">
+    <a href="timeTable.html" target="_blank">그림으로 보기</a>
+  </div>
 </body>
 
 </html>
