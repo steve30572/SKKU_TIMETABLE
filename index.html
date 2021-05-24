@@ -286,12 +286,7 @@ function myFunction_Professor() {
       <tbody>
       </tbody>
     </table>
-<<<<<<< HEAD
-    <a href="timeTable.html" target="_blank">그림으로 보기</a>
-
-=======
     
->>>>>>> b3a0f1800d17febed1fde8fae31ec58cd16ab287
      
     </div>
     
@@ -419,6 +414,7 @@ function sortTable(tblID, col, desc) {
             lastTasks=localStorage.getItem("tasks");
             if(!!lastTasks){
                 lastTasks=JSON.parse(lastTasks);  
+                tableSubjects=[];
                 lastTasks.forEach(setTableSubjects);
                 const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
                 localStorage.setItem("table subjects",JSON.stringify(data));
