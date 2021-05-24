@@ -502,13 +502,16 @@
                     let iterate = Array.isArray(subject.day)
                         ? subject.day.length
                         : 1;
+                    console.log(subject.name);
                     if (!subject.name.includes(",")) {
                         setColor();
                     }
                     for (let i = 0; i < iterate; i++) {
-                        console.log(subject.name);
                         let startTr =
                             (getElement(subject.startTime, i) - 9) / 0.25 + 1;
+                        console.log(subject.startTime);
+                        console.log(startTr);
+                        
                         let rowSpan = getElement(subject.length, i) * 4;
                         if (rowSpan > 0) {
                             //과목 만들기

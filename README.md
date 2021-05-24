@@ -28,7 +28,7 @@ There are many ways in which you can participate in the project, for example:
 * Ask a question on [Stack Overflow](https://stackoverflow.com)
 * [File an issue](https://github.com/steve30572/SKKU_TIMETABLE/issues)
 
-## Code of Conductm
+## Code of Conduct
 Code of Conduct is Contributor Covenant Code of Conduct
 Check our Code of Conduct on our repository [CODE_OF_CONDUCT](https://github.com/steve30572/SKKU_TIMETABLE/blob/master/CODE_OF_CONDUCT.md)
 
