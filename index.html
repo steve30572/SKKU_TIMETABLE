@@ -178,13 +178,15 @@
           var course_name=row.insertCell(1);
           var professor_name=row.insertCell(2);
           var class_time=row.insertCell(3);
-          var button=row.insertCell(4);
+          var priority=row.insertCell(4);
+          var button=row.insertCell(5);
           console.log("this is T")
           console.log(T);
-          amount.innerHTML=T["amount"];
+          amount.innerHTML=Math.round(Math.random()*3* 100) / 100;;
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
+          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  >';
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           //manageOverlap();
 
@@ -212,12 +214,15 @@
           var course_name=row.insertCell(1);
           var professor_name=row.insertCell(2);
           var class_time=row.insertCell(3);
-          var button=row.insertCell(4);
-          amount.innerHTML=data[0].innerHTML;
+          var priority=row.insertCell(4);
+          var button=row.insertCell(5);
+
+          amount.innerHTML=Math.round(Math.random()*3* 100) / 100;
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
-          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
+          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  >';
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
           tasks.push(task);
           saveTasks();
           //manageOverlap();
@@ -281,6 +286,7 @@ function myFunction_Professor() {
          <th> 과목명       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
          <th> 교수명 <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
          <th> 수업시간    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+         <th> 우선순위</th>
         </tr>
       </thead>
       <tbody>
