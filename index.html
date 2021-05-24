@@ -182,7 +182,7 @@
           var button=row.insertCell(5);
           console.log("this is T")
           console.log(T);
-          amount.innerHTML=Math.round(Math.random()*3* 100) / 100;;
+          amount.innerHTML=T['amount'];
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
@@ -195,8 +195,9 @@
           var ID=event.target.parentNode.parentNode.id;
           var data=document.getElementById(ID).querySelectorAll(".row-data");
           console.log(data[0].innerHTML);
+          var priority=Math.round(Math.random()*3* 100)/100;
           let task={
-              amount:data[0].innerHTML,
+              amount:priority,
               name: data[1].innerHTML,
               professor:data[2].innerHTML,
               time:data[3].innerHTML
@@ -217,7 +218,7 @@
           var priority=row.insertCell(4);
           var button=row.insertCell(5);
 
-          amount.innerHTML=Math.round(Math.random()*3* 100) / 100;
+          amount.innerHTML=task.amount;
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
