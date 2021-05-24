@@ -16,12 +16,30 @@
 		.container {
 			width: 640px;
 		}
+        #all_subject{
+           width:46%;height:680px;float:left;  overflow:auto;border: 1px solid #000; border-radius: 10px;
+        }
+        #back_pack{
+            width: 54%;height:400px;float:right;  overflow:auto;border: 1px solid #000; border-radius: 10px;
+        }
+        #overlap{
+            width: 54%;height:220px;float:right;  overflow:auto;border: 1px solid #000; border-radius: 10px;
+        }
+        #link_graph{
+          width: 90%;
+        }
 	</style>
 </head>
 <body>
-    <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="과목명으로 검색">
-    <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="교수명으로 검색">
-    <div style="width:100%; height:200px; overflow:auto">
+    <div id = all_subject>
+        <div class="row">
+            <div class="col">
+                <input type="text" id="myInput_Name" onkeyup="myFunction_Name()" placeholder="과목명으로 검색" class="form-control"  >
+            </div>
+            <div class="col">
+                <input type="text" id="myInput_Professor" onkeyup="myFunction_Professor()" placeholder="교수명으로 검색" class="form-control"  >
+            </div>
+          </div>
     <table class="table" id="myTable">
         <thead>
           <tr>
@@ -38,91 +56,91 @@
             <td class="row-data">오픈소스실습</td>
             <td class="row-data">Mark</td>
             <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SP">
             <th scope="row" class="row-data">30</th>
             <td class="row-data">시스템 프로그램</td>
             <td class="row-data">Kim</td>
             <td class="row-data">9:00~12:00(월)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Algo">
             <th scope="row" class="row-data">100</th>
             <td class="row-data" >알고리즘개론</td>
             <td class="row-data">Lee</td>
             <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="EW">
             <th scope="row" class="row-data">20</th>
             <td class="row-data">영어쓰기</td>
             <td class="row-data">Jack</td>
             <td class="row-data">12:00~14:45(월)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SWE">
             <th scope="row" class="row-data">80</th>
             <td class="row-data">소프트웨어공학개론</td>
             <td class="row-data">Park</td>
             <td class="row-data">12:00~15:00(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="DB">
             <th scope="row" class="row-data">90</th>
             <td class="row-data">데이터베이스</td>
             <td class="row-data">Phil</td>
             <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="SD">
             <th scope="row" class="row-data">40</th>
             <td class="row-data">스피치와토론</td>
             <td class="row-data">Kate</td>
             <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="physics">
             <th scope="row" class="row-data">56</th>
             <td class="row-data">일반물리학1</td>
             <td class="row-data">Vray</td>
             <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Calculus">
             <th scope="row" class="row-data">75</th>
             <td class="row-data">미적분학1</td>
             <td class="row-data">James</td>
             <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Chemis">
             <th scope="row" class="row-data">60</th>
             <td class="row-data">일반화학1</td>
             <td class="row-data">Kyle</td>
             <td class="row-data">12:00~15:00(금)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="Structure">
             <th scope="row" class="row-data">40</th>
             <td class="row-data">자료구조개론</td>
             <td class="row-data">Jamal</td>
             <td class="row-data">9:00~12:00(수)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="CN">
             <th scope="row" class="row-data">82</th>
             <td class="row-data">컴퓨터네트워크개론</td>
             <td class="row-data">Bob</td>
             <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           <tr id="sw">
             <th scope="row" class="row-data">50</th>
             <td class="row-data">과학기술글쓰기</td>
             <td class="row-data">Charles</td>
             <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
-            <td><button class="to_backpack" onclick="show()">추가하기</button></td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">추가하기</button></td>
           </tr>
           
           
@@ -131,6 +149,7 @@
         </tbody>
       </table>
     </div>
+    
       <script>
         window.addEventListener("load",()=>{
             loadTasks();
@@ -141,6 +160,7 @@
         function saveTasks(){
             const data= Array.from(new Set(tasks.map(JSON.stringify))).map(JSON.parse);
             localStorage.setItem("tasks",JSON.stringify(data));
+            manageOverlap();
         }
         function loadTasks(){
             let lastTasks=localStorage.getItem("tasks");
@@ -165,7 +185,8 @@
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
-          button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
+          //manageOverlap();
 
         }
         function show(){
@@ -196,9 +217,10 @@
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
-          button.innerHTML='<button type ="button" onclick="deleteRow(this)">X</button>'
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           tasks.push(task);
           saveTasks();
+          //manageOverlap();
           }
           //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
 
@@ -249,215 +271,78 @@ function myFunction_Professor() {
       </script>
 </body>
 <body>
-    </div>
-    <table id="backpack">
+    <hr>
+    <div id="back_pack">
+
+    <table id="backpack" table class = "table table-striped">
       <thead>
         <tr>
-          <th> Total_amount    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
-         <th> Name       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
-         <th> Professor <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
-         <th> Time    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+          <th> 총 정원    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
+         <th> 과목명       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
+         <th> 교수명 <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
+         <th> 수업시간    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+      </tbody>
     </table>
+<<<<<<< HEAD
     <a href="timeTable.html" target="_blank">그림으로 보기</a>
 
+=======
+    
+>>>>>>> b3a0f1800d17febed1fde8fae31ec58cd16ab287
      
     </div>
     
     <script type="text/javascript">
-      var myTable = document.getElementById( "backpack" ); 
+       var myTable = document.getElementById( "backpack" ); 
     var replace = replacement( myTable ); 
     var eventTarget = document.getElementsByClassName('delete')
-    function sortTD( index ){    replace.ascending( index );    } 
-    function reverseTD( index ){    replace.descending( index );    } 
+    function sortTD( index ){   sortTable('backpack',index);     } 
+    function reverseTD( index ){    sortTable('backpack',index,true);   } 
     function deleteRow(obj){  
+        manageOverlap(); 
       var tr = obj.parentNode.parentNode;
-     tr.parentNode.removeChild(tr);
-     tasks.pop(tr); saveTasks();
-}
-      function sortingNumber( a , b ){  
-      
-              if ( typeof a == "number" && typeof b == "number" ) return a - b; 
-      
-              var numA = parseFloat( a ) + ""; 
-              var numB = parseFloat( b ) + ""; 
-      
-              if ( numA == "NaN" || numB == "NaN" || a != numA || b != numB ) return false; 
-      
-              return parseFloat( a ) - parseFloat( b ); 
-      } 
-      
-      function changeForSorting( first , second ){  
-      
-              // 문자열의 복사본 만들기. 
-              var a = first.toString().replace( /[\s\xA0]+/g , " " ); 
-              var b = second.toString().replace( /[\s\xA0]+/g , " " ); 
-      
-              var change = { first : a, second : b }; 
-      
-              if ( a.search( /\d/ ) < 0 || b.search( /\d/ ) < 0 || a.length == 0 || b.length == 0 ) return change; 
-      
-              var unit = 0; 
-              var aNb = a + " " + b; 
-              var numbers = aNb.match( /\d+/g ); // 문자열에 들어있는 숫자 찾기 
-      
-              for ( var x = 0; x < numbers.length; x++ ){ 
-      
-                      var length = numbers[ x ].length; 
-                      if ( unit < length ) unit = length; 
-              } 
-      
-              var addZero = function( string ){
-      
-                      var match = string.match( /^0+/ ); 
-      
-                      if ( string.length == unit ) return ( match == null ) ? string : match + string; 
-      
-                      var zero = "0"; 
-      
-                      for ( var x = string.length; x < unit; x++ ) string = zero + string; 
-      
-                      return ( match == null ) ? string : match + string; 
-              }; 
-      
-              change.first = a.replace( /\d+/g, addZero ); 
-              change.second = b.replace( /\d+/g, addZero ); 
-      
-              return change; 
-      } 
-      
-      
-      function byLocale(){ 
-      
-              var compare = function( a , b ){ 
-      
-                      var sorting = sortingNumber( a , b ); 
-      
-                      if ( typeof sorting == "number" ) return sorting; 
-      
-                      var change = changeForSorting( a , b ); 
-      
-                      var a = change.first; 
-                      var b = change.second; 
-      
-                      return a.localeCompare( b ); 
-              }; 
-      
-              var ascendingOrder = function( a , b ){  return compare( a , b );  }; 
-              var descendingOrder = function( a , b ){  return compare( b , a );  }; 
-      
-              return { ascending : ascendingOrder, descending : descendingOrder }; 
-      } 
-      
-       
-      function replacement( parent ){  
-              var tagName = parent.tagName.toLowerCase(); 
-              if ( tagName == "table" ) parent = parent.tBodies[ 0 ]; 
-              tagName = parent.tagName.toLowerCase(); 
-              if ( tagName == "tbody" ) var children = parent.rows; 
-              else var children = parent.getElementsByTagName( "li" ); 
-      
-              var replace = { 
-                      order : byLocale(), 
-                      index : false, 
-                      array : function(){ 
-                              var array = [ ]; 
-                              for ( var x = 0; x < children.length; x++ ) array[ x ] = children[ x ]; 
-                              return array; 
-                      }(), 
-                      checkIndex : function( index ){ 
-                              if ( index ) this.index = parseInt( index, 10 ); 
-                              var tagName = parent.tagName.toLowerCase(); 
-                              if ( tagName == "tbody" && ! index ) this.index = 0; 
-                      }, 
-                      getText : function( child ){ 
-                              if ( this.index ) child = child.cells[ this.index ]; 
-                              return getTextByClone( child ); 
-                      }, 
-                      setChildren : function(){ 
-                              var array = this.array; 
-                              while ( parent.hasChildNodes() ) parent.removeChild( parent.firstChild ); 
-                              for ( var x = 0; x < array.length; x++ ) parent.appendChild( array[ x ] ); 
-                      }, 
-                      ascending : function( index ){
-                              this.checkIndex( index ); 
-                              var _self = this; 
-                              var order = this.order; 
-                              var ascending = function( a, b ){ 
-                                      var a = _self.getText( a ); 
-                                      var b = _self.getText( b ); 
-                                      return order.ascending( a, b ); 
-                              }; 
-                              this.array.sort( ascending ); 
-                              this.setChildren(); 
-                      }, 
-                      descending : function( index ){
-                              this.checkIndex( index ); 
-                              var _self = this; 
-                              var order = this.order; 
-                              var descending = function( a, b ){ 
-                                      var a = _self.getText( a ); 
-                                      var b = _self.getText( b ); 
-                                      return order.descending( a, b ); 
-                              }; 
-                              this.array.sort( descending ); 
-                              this.setChildren(); 
-                      } 
-              }; 
-              return replace; 
-      } 
-      
-      function getTextByClone( tag ){  
-              var clone = tag.cloneNode( true ); 
-              var br = clone.getElementsByTagName( "br" ); 
-              while ( br[0] ){ 
-                      var blank = document.createTextNode( " " ); 
-                      clone.insertBefore( blank , br[0] ); 
-                      clone.removeChild( br[0] ); 
-              } 
-              var isBlock = function( tag ){ 
-                      var display = ""; 
-                      if ( window.getComputedStyle ) display = window.getComputedStyle ( tag, "" )[ "display" ]; 
-                      else display = tag.currentStyle[ "display" ]; 
-                      return ( display == "block" ) ? true : false; 
-              }; 
-              var children = clone.getElementsByTagName( "*" ); 
-              for ( var x = 0; x < children.length; x++){ 
-                      var child = children[ x ]; 
-                      if ( ! ("value" in child) && isBlock(child) ) child.innerHTML = child.innerHTML + " "; 
-              } 
-              var textContent = ( "textContent" in clone ) ? clone.textContent : clone.innerText; 
-              return textContent; 
-      } 
+     
+      tr.parentNode.removeChild(tr);
+     let task={
+       amount: tr.cells[0].innerHTML,
+       name: tr.cells[1].innerHTML,
+       professor: tr.cells[2].innerHTML,
+       time: tr.cells[3].innerHTML
+     };
+     console.log(task);
 
-    $(document).ready(function() {
-   $('th').each(function (column) {
-      $(this).click(function() {
-              if($(this).is('.asc')) {
-                  $(this).removeClass('asc');
-                  $(this).addClass('desc');
-                  sortdir=-1;                
-              } else {
-                 $(this).addClass('asc');
-                 $(this).removeClass('desc'); 
-                 sortdir=1;
-              }
-              $(this).siblings().removeClass('asc');
-              $(this).siblings().removeClass('desc');
-             var rec = $('table').find('tbody>tr').get();
-             rec.sort(function (a, b) {
-                  var val1 = $(a).children('td').eq(column).text().toUpperCase();
-                  var val2 = $(b).children('td').eq(column).text().toUpperCase();
-      return (val1 < val2)?-sortdir:(val1>val2)?sortdir:0;
-             });
-             $.each(rec, function(index, row) {
-                  $('tbody').append(row);
-               });
-         });
-     });
-});
+     tasks = tasks.filter(t => t.name !== task.name || t.amount !== task.amount || t.professor !== task.professor || t.time !==task.time);
+     //tasks.pop(tr); 
+     saveTasks(); 
+}
+function sortTable(tblID, col, desc) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    col = (col || 0);
+    table = document.getElementById(tblID);
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[col];
+        y = rows[i + 1].getElementsByTagName("TD")[col];
+        if ((desc)? x.textContent.toLowerCase() < y.textContent.toLowerCase() : x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+ 
+
 
 
 
@@ -466,9 +351,8 @@ function myFunction_Professor() {
     
     
     
-    
-                                                     <div id="overlap">
-          <br /><br />
+    <div id="overlap" class="p-3 mb-2 bg-light text-dark">
+        <h2>겹치는 과목</h2>
           <div id="overlapMessage"></div>
           <script>
             let overlapped = 0;
@@ -538,20 +422,22 @@ function myFunction_Professor() {
                 lastTasks.forEach(setTableSubjects);
                 const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
                 localStorage.setItem("table subjects",JSON.stringify(data));
-                console.log(lastTasks);
-                console.log(tableSubjects);
+                //console.log(lastTasks);
+                //console.log(tableSubjects);
             }
 
-            
+              
               let messagespace = document.querySelector("#overlapMessage");
+              console.log(tableSubjects);
+             
+              //messagespace.innerHTML="";
               for (let i = 0; i < tableSubjects.length; i++) {
                 for (let j = i + 1; j < tableSubjects.length; j++) {
                   //겹치는 조건 확인
                   if (checkOverlap(tableSubjects[i],tableSubjects[j])) {
                     if (overlapped == 0) {
                       let overlappedMessage = document.createElement("span");
-                      overlappedMessage.textContent =
-                        "수업시간이 겹치는 과목이 있습니다.";
+                      overlappedMessage.textContent =""
                       messagespace.appendChild(overlappedMessage);
                       overlapped++;
                     }
@@ -611,6 +497,11 @@ function myFunction_Professor() {
           </script>
         </div>
     </div>
+</body>
+<body>
+  <div id ="link_graph">
+    <a href="timeTable.html" target="_blank">그림으로 보기</a>
+  </div>
 </body>
 
 </html>
