@@ -312,7 +312,8 @@ function myFunction_Professor() {
        amount: tr.cells[0].innerHTML,
        name: tr.cells[1].innerHTML,
        professor: tr.cells[2].innerHTML,
-       time: tr.cells[3].innerHTML
+       time: tr.cells[3].innerHTML,
+       priority:tr.cells[4].innerHTML
      };
      console.log(task);
 
@@ -349,24 +350,35 @@ function sortTable(tblID, col, desc) {
     while (switching) {
       switching = false;
       rows = table.rows;
+      if(col===4){
+          var pr=document.getElementsByName("pr");
+          var priority_list=[];
+          var const_list=[];
+          for(var j=0;j<pr.length;j++){
+                priority_list.push(Number(pr[j].value));
+                const_list.push(Number(pr[j].value));
+          }
+          var sorted=priority_list.sort();
+          console.log("this is rows");
+          console.log(rows[1].parentNode);
+      }
+      else{
       for (i = 1; i < (rows.length - 1); i++) {
         shouldSwitch = false;
         x = rows[i].getElementsByTagName("TD")[col];
         y = rows[i + 1].getElementsByTagName("TD")[col];
-        if(col=== 4){
-          x = $('#backpack tr').eq(i).find('input[id="myInput_Priority"]').val();
-          y = $('#backpack tr').eq(i+1).find('input[id="myInput_Priority"]').val();
-        }
+     
         if ((desc)? x.textContent.toLowerCase() < y.textContent.toLowerCase() : x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
           shouldSwitch = true;
           break;
         }
       }
+      
       if (shouldSwitch) {
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
         switching = true;
       }
-    }
+    }}
   }
 
 
