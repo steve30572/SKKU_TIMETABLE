@@ -2,8 +2,8 @@
 This is HTML implementation for the ease of use for SKKU course enrollment
 
 ## Introduction
-//proposal 처럼 동기같은것도 넣고 그러면 어떨까요?   
-SKKU course enrollment backpack website supports to see the whole course list with some attributes. If the user wants to add the course to their backpack, they can click the button. If they add the course to their backpack, our website automatically adds the course to their backpack list and also checks if the courses we added has some overlapped time between them and also makes the time schedule to increase the visibility.
+To enroll and register course at our university, we need to use 2~3 applications to check if we add all the course we want. First, we need to add the course we want to attend to the backpack system at our GLS whole class system. After, we need to go to our university enrollment system webpage to check the capacity of the course. Finally, we use some applications like Everytime to check the expected timetable.
+To enhance this inconvenience, SKKU course enrollment backpack website supports to see the whole course list, backpack and some overlapped class at one page with some attributes. If the user wants to add the course to their backpack, they can click the button. If they add the course to their backpack, our website automatically adds the course to their backpack list and also checks if the courses we added has some overlapped time between them and also makes the time schedule to increase the visibility.
 
 ## Ways to access the Website
 Visit our website by clicking [HERE](https://steve30572.github.io/SKKU_TIMETABLE/).  
