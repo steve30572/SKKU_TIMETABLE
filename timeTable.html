@@ -519,6 +519,17 @@
                                 newTd.setAttribute("rowspan", rowSpan);
                                 newTd.textContent = subject.name;
                             }
+                            //과목 삽입
+                            let beforeTd;
+                            tdList = trList[startTr].querySelectorAll("td");
+                            for (let j = 0; j < tdList.length; j++) {
+                                if (
+                                    tdList[j].getAttribute("id") ===
+                                    subject.day[i] + ""
+                                ) {
+                                    beforeTd = tdList[j];
+                                }
+                            }
                             //과목이 들어갈 자리 다 지우기
                             for (let j = 0; j < rowSpan; j++) {
                                 let tdList2 =
@@ -533,10 +544,6 @@
                                     }
                                 }
                             }
-                            //과목 삽입
-                            tdList = trList[startTr].querySelectorAll("td");
-                            let beforeTd = tdList[subject.day[i] - 1];
-                            trList[startTr].insertBefore(newTd, beforeTd);
                         }
                     }
                 }
