@@ -499,17 +499,13 @@
                 let colorcode = 0;
                 let color;
                 function addToTable(subject) {
-                    let iterate = Array.isArray(subject.day)
-                        ? subject.day.length
-                        : 1;
                     if (!subject.name.includes(",")) {
                         setColor();
                     }
-                    for (let i = 0; i < iterate; i++) {
+                    for (let i = 0; i < subject.day.length; i++) {
                         console.log(subject.name);
-                        let startTr =
-                            (getElement(subject.startTime, i) - 9) / 0.25 + 1;
-                        let rowSpan = getElement(subject.length, i) * 4;
+                        let startTr = (subject.startTime[i] - 9) / 0.25 + 1;
+                        let rowSpan = subject.length[i] * 4;
                         if (rowSpan > 0) {
                             //과목 만들기
                             let newTd = document.createElement("td");
@@ -530,7 +526,7 @@
                                 for (let k = 0; k < tdList2.length; k++) {
                                     if (
                                         tdList2[k].getAttribute("id") ===
-                                        getElement(subject.day, i) + ""
+                                        subject.day[i] + ""
                                     ) {
                                         tdList2[k].remove();
                                         break;
@@ -539,14 +535,10 @@
                             }
                             //과목 삽입
                             tdList = trList[startTr].querySelectorAll("td");
-                            let beforeTd =
-                                tdList[getElement(subject.day, i) - 1];
+                            let beforeTd = tdList[subject.day[i] - 1];
                             trList[startTr].insertBefore(newTd, beforeTd);
                         }
                     }
-                }
-                function getElement(value, i) {
-                    return Array.isArray(value) ? value[i] : value;
                 }
 
                 function setColor() {
