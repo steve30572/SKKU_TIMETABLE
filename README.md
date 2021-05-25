@@ -9,14 +9,52 @@ To enhance this inconvenience, SKKU course enrollment backpack website supports 
 Visit our website by clicking [HERE](https://steve30572.github.io/SKKU_TIMETABLE/).  
 Or, you can visit our [repository](https://github.com/steve30572/SKKU_TIMETABLE) and check our github-pages.
 
-## Initial Screen
+## Usage Example(latest release:[v1.5.2](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.5.2))
+link to our [demonstration video](https://www.youtube.com/watch?v=7ZnklwRE0P8)
+### initial screen 
 <p align="center">
   <img alt="Website inital screen" src="Initial Screen.PNG">
 </p>
 
+
+### search for the course      
+
+![image](https://user-images.githubusercontent.com/60357053/119492351-eedc6800-bd99-11eb-9b0b-1d5911ffc1f0.png)
+
+Search the course you want to enroll by the course name, and professor name!
+
+### add and delete the course 
+
+![image](https://user-images.githubusercontent.com/60357053/119492639-437fe300-bd9a-11eb-80fd-d06f5d9c9341.png)
+
+Add the course to your backpack by the "+" button, and delete it from the backpack by the "x" button!   
+By adding a course to your backpack, you can view the competition ratio of the course. 
+
+### sort your backpack 
+
+![image](https://user-images.githubusercontent.com/60357053/119493560-47603500-bd9b-11eb-9615-d9f7fe883b9a.png)
+
+Sort by course name, competition ratio, and custom priority is available!
+
+### check time conflicts of the courses
+
+![image](https://user-images.githubusercontent.com/60357053/119494097-e2590f00-bd9b-11eb-8151-709497ed5bfe.png)
+
+Time conflict enrollment is not allowed, so be careful!
+
+### check your timetable 
+
+![image](https://user-images.githubusercontent.com/60357053/119494570-6ad7af80-bd9c-11eb-946b-44cc34aacb42.png)
+![image](https://user-images.githubusercontent.com/60357053/119494676-89d64180-bd9c-11eb-97e7-0d14eb9dbde2.png)
+
+By clicking the below link, a new window will show your expected timetable based on the courses in the backpack list.   
+Overlapped classes are also shown, by striped cells. 
+
+
 ## Release Notes
-//여기에 버전별로 예시(사진)와 함께 설명하기   
-//마지막 버전엔 영상도 첨부   
+### [v0.3.1](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v0.3.1)
+### [v1.3.4](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.3.4)
+### [v1.5.2](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.5.2)
 
 ## Contributing
 
