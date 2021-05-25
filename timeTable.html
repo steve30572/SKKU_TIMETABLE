@@ -530,6 +530,7 @@
                                     beforeTd = tdList[j];
                                 }
                             }
+                            trList[startTr].insertBefore(newTd, beforeTd);
                             //과목이 들어갈 자리 다 지우기
                             for (let j = 0; j < rowSpan; j++) {
                                 let tdList2 =
