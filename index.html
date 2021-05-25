@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -186,7 +187,7 @@
           course_name.innerHTML=T["name"];
           professor_name.innerHTML=T["professor"];
           class_time.innerHTML=T['time'];
-          priority.innerHTML=`<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;" onkeydown="JavaScript:enterkey(this);"value= ${T["priority"]}> `;
+          priority.innerHTML=`<input type="text" class="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;" onKeyDown="JavaScript:enterkey(this);"value= ${T["priority"]}> `;
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
           //manageOverlap();
 
@@ -223,7 +224,7 @@
           course_name.innerHTML=data[1].innerHTML;
           professor_name.innerHTML=data[2].innerHTML;
           class_time.innerHTML=data[3].innerHTML;
-          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  value = "0" onkeyup="if(window.event.keyCode==13){enterkey(this)}"  >';
+          priority.innerHTML='<input type="text" class="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  value = "0" onKeyDown="javascript:enterkey(this)"  >';
           button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
           tasks.push(task);
           saveTasks();
@@ -322,6 +323,7 @@ function myFunction_Professor() {
      saveTasks(); 
 }
 function enterkey(obj){
+  if(event.keyCode===13){
     let text = obj.value;
     if (!text.length) return;
     manageOverlap(); 
@@ -339,6 +341,7 @@ function enterkey(obj){
        tasks.push(task);
        //tasks.pop(tr); 
        saveTasks(); 
+  }
 }
 
 function sortTable(tblID, col, desc) {
@@ -350,35 +353,38 @@ function sortTable(tblID, col, desc) {
     while (switching) {
       switching = false;
       rows = table.rows;
-      if(col===4){
-          var pr=document.getElementsByName("pr");
-          var priority_list=[];
-          var const_list=[];
-          for(var j=0;j<pr.length;j++){
-                priority_list.push(Number(pr[j].value));
-                const_list.push(Number(pr[j].value));
-          }
-          var sorted=priority_list.sort();
-          console.log("this is rows");
-          console.log(rows[1].parentNode);
-      }
-      else{
       for (i = 1; i < (rows.length - 1); i++) {
         shouldSwitch = false;
         x = rows[i].getElementsByTagName("TD")[col];
-        y = rows[i + 1].getElementsByTagName("TD")[col];
-     
-        if ((desc)? x.textContent.toLowerCase() < y.textContent.toLowerCase() : x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
+        y = rows[i + 1].getElementsByTagName("TD")[col];  
+        if(col===4){
+          
+          x = document.getElementsByClassName("myInput_Priority")[i-1].value;
+          y = document.getElementsByClassName("myInput_Priority")[i].value; 
+        }
+        if(col ===4){
+          if ((desc)? x < y : x> y) {
           shouldSwitch = true;
+          console.log("OK!!!!!!!");
           break;
         }
+        }
+        else{
+          if ((desc)? x.textContent.toLowerCase() < y.textContent.toLowerCase() : x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
+            shouldSwitch = true;
+            console.log("OK!!!!!!!");
+            break;
+          }
+
+        }
+        
       }
       
       if (shouldSwitch) {
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
         switching = true;
       }
-    }}
+    }
   }
 
 
