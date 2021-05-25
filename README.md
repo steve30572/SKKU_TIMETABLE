@@ -1,5 +1,6 @@
 # SKKU course enrollment backpack
-This is HTML implementation for the ease of use for SKKU course enrollment
+This is HTML implementation for the ease of use for SKKU course enrollment.    
+Unfortunately, the course list information is virtual, and is made by our team.   
 
 ## Introduction
 To enroll and register course at our university, we need to use 2~3 applications to check if we add all the course we want. First, we need to add the course we want to attend to the backpack system at our GLS whole class system. After, we need to go to our university enrollment system webpage to check the capacity of the course. Finally, we use some applications like Everytime to check the expected timetable.
