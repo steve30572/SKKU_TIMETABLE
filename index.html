@@ -150,6 +150,7 @@
         </tbody>
       </table>
     </div>
+</div>
     
       <script>
         window.addEventListener("load",()=>{
@@ -394,159 +395,240 @@ function sortTable(tblID, col, desc) {
     
     
     
-    <div id="overlap" class="p-3 mb-2 bg-light text-dark">
-        <h2>겹치는 과목</h2>
-          <div id="overlapMessage"></div>
-          <script>
-            let overlapped = 0;
-            let messagespace = document.querySelector("#overlapMessage"); 
-            let lastTasks;
+<div id="overlap" class="p-3 mb-2 bg-light text-dark">
+    <h2>겹치는 과목</h2>
+    <div id="overlapMessage"></div>
+    <script>
+        let overlapped = 0;
+        let messagespace = document.querySelector("#overlapMessage");
+        let lastTasks;
 
-            let newSubject;
+        let newSubject;
 
-            let tableSubjects=[];
-
-            
-               window.addEventListener("load", () => {
-              manageOverlap();
-            });
-            function setTableSubjects(subject){
-
-            let times=subject.time.split(",");
-            newSubject= {
+        let tableSubjects = [];
+        window.addEventListener("load", () => {
+            manageOverlap();
+        });
+        function setTableSubjects(subject) {
+            subject.time = subject.time.replace(/(\r\n|\n|\r)/gm, "");
+            subject.time = subject.time.replace(/\s/g, "");
+            let times = subject.time.split(",");
+            console.log(times);
+            newSubject = {
                 name,
                 day: [],
                 startTime: [],
                 endTime: [],
                 length: [],
             };
-            newSubject.name=subject.name;
+            newSubject.name = subject.name;
             times.forEach(getTime);
-
+            console.log(newSubject);
             tableSubjects.push(newSubject);
-            }
+        }
 
-            function getTime(strTime){
-
-            let day=strTime.split('(').pop();
-            let time=strTime.split('(')[0];
-            time=time.split("~");
-            let startTime=+time[0].split(':')[0]+(+time[0].split(':').pop())/(60.0);
-            let endTime=+time[1].split(':')[0]+(+time[1].split(':').pop())/(60.0);
-            console.log(startTime);
+        function getTime(strTime) {
+            let day = strTime.split("(").pop();
+            let time = strTime.split("(")[0];
+            time = time.split("~");
+            let startTime =
+                +time[0].split(":")[0] + +time[0].split(":").pop() / 60.0;
+            console.log(+time[1].split(":").pop());
+            let endTime =
+                +time[1].split(":")[0] + +time[1].split(":").pop() / 60.0;
             newSubject.day.push(+convertDay(day));
             newSubject.startTime.push(startTime);
             newSubject.endTime.push(endTime);
-            newSubject.length.push(endTime-startTime);
-
+            newSubject.length.push(endTime - startTime);
         }
 
-        function convertDay(day){
-        switch(day){
-            case "월)":
-                return 1;
-            case "화)":
-                return 2;
-            case "수)":
-                return 3;
-            case "목)":
-                return 4;
-            case "금)":
-                return 5;
+        function convertDay(d) {
+            switch (d) {
+                case "월)":
+                    return 1;
+                case "화)":
+                    return 2;
+                case "수)":
+                    return 3;
+                case "목)":
+                    return 4;
+                case "금)":
+                    return 5;
             }
         }
 
+        function convertDaycode(d2) {
+            switch (d2) {
+                case 1:
+                    return "(월)";
+                case 2:
+                    return "(화)";
+                case 3:
+                    return "(수)";
+                case 4:
+                    return "(목)";
+                case 5:
+                    return "(금)";
+            }
+        }
 
         function manageOverlap() {
-            //불러오기 
-            lastTasks=localStorage.getItem("tasks");
-            if(!!lastTasks){
-                lastTasks=JSON.parse(lastTasks);  
-                tableSubjects=[];
+            //불러오기
+            lastTasks = localStorage.getItem("tasks");
+            if (!!lastTasks) {
+                lastTasks = JSON.parse(lastTasks);
+                tableSubjects = [];
                 lastTasks.forEach(setTableSubjects);
-                const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
-                localStorage.setItem("table subjects",JSON.stringify(data));
+                const data = Array.from(
+                    new Set(tableSubjects.map(JSON.stringify))
+                ).map(JSON.parse);
+                localStorage.setItem(
+                    "table subjects",
+                    JSON.stringify(data)
+                );
                 //console.log(lastTasks);
                 //console.log(tableSubjects);
             }
 
-              
-              let messagespace = document.querySelector("#overlapMessage");
-              messagespace.innerHTML="";
-              console.log(tableSubjects);
-             
-              //messagespace.innerHTML="";
-              for (let i = 0; i < tableSubjects.length; i++) {
+            let messagespace = document.querySelector("#overlapMessage");
+            messagespace.innerHTML = "";
+
+            for (let i = 0; i < tableSubjects.length; i++) {
                 for (let j = i + 1; j < tableSubjects.length; j++) {
-                  //겹치는 조건 확인
-                  if (checkOverlap(tableSubjects[i],tableSubjects[j])) {
-                    if (overlapped == 0) {
-                      let overlappedMessage = document.createElement("span");
-                      overlappedMessage.textContent =""
-                      messagespace.appendChild(overlappedMessage);
-                      overlapped++;
-                    }
-                    //겹친다는 메세지 생성
+                    checkOverlap(tableSubjects[i], tableSubjects[j]);
+                }
+            }
+            for (let i = 0; i < tableSubjects.length; i++) {
+                if (
+                    tableSubjects[i].name.includes(",") &&
+                    tableSubjects[i].length[0] !== 0
+                ) {
                     let newOverlapMessage = document.createElement("span");
                     let br = document.createElement("br");
                     newOverlapMessage.textContent =
-                      tableSubjects[i].name + "," + tableSubjects[j].name;
-                    //메세지 추가
+                        tableSubjects[i].name +
+                        convertDaycode(tableSubjects[i].day[0]);
                     messagespace.appendChild(br);
                     messagespace.appendChild(newOverlapMessage);
-                  }
                 }
-              }
             }
-            function checkOverlap(subject1,subject2){
-            let result=false;
-              for(let i=0;i<subject1.day.length;i++){
-                for(let j=0;j<subject2.day.length;j++){
-                  if(subject1.day[i]===subject2.day[j]){
-                    if(subject1.startTime[i] <subject2.endTime[j]&&
-                    subject1.endTime[i] >subject2.startTime[j]){
+        }
 
-                        result=true;
+        function checkOverlap(subject1, subject2) {
+            let result = false;
+            for (let i = 0; i < subject1.day.length; i++) {
+                for (let j = 0; j < subject2.day.length; j++) {
+                    if (subject1.day[i] === subject2.day[j]) {
+                        if (
+                            subject1.startTime[i] < subject2.endTime[j] &&
+                            subject1.endTime[i] > subject2.startTime[j]
+                        ) {
+                            if (
+                                subject1.length[i] === 0 ||
+                                subject2.length[j] === 0
+                            ) {
+                                continue;
+                            }
 
-                       let newOverlap= {
-                        name: subject1.name+", "+subject2.name,
-                        day: subject1.day[i],
-                        startTime: Math.max(subject1.startTime[i],subject2.startTime[j]),
-                        endTime: Math.min(subject1.endTime[i],subject2.endTime[j]),
-                        length,
-                        };
+                            result = true;
 
-                        newOverlap.length=newOverlap.endTime-newOverlap.startTime;
-                        if(subject1.startTime[i]===newOverlap.startTime){
-                            subject1.startTime[i]=newOverlap.endTime;
+                            let newOverlap = {
+                                name: subject1.name + ", " + subject2.name,
+                                day: [subject1.day[i]],
+                                startTime: [
+                                    Math.max(
+                                        subject1.startTime[i],
+                                        subject2.startTime[j]
+                                    ),
+                                ],
+                                endTime: [
+                                    Math.min(
+                                        subject1.endTime[i],
+                                        subject2.endTime[j]
+                                    ),
+                                ],
+                                length: [],
+                            };
+
+                            newOverlap.length.push(
+                                newOverlap.endTime[0] - newOverlap.startTime[0]
+                            );
+
+                            let k=i;
+                            if(subject1.startTime[i]<newOverlap.startTime[0]){
+                                subject1.startTime.splice(k+1,0,subject1.startTime[i]);
+                                subject1.endTime.splice(k+1,0,newOverlap.startTime[0]);
+                                k++;
+                            }
+                            if(subject1.endTime[i]>newOverlap.endTime[0]){
+                                subject1.startTime.splice(k+1,0,newOverlap.endTime[0]);
+                                subject1.endTime.splice(k+1,0,subject1.startTime[i]);
+                                k++;
+                            }
+                            if(k>i){
+                                subject1.startTime.splice(i,1);
+                                subject1.endTime.splice(i,1);
+
+                            }
+
+                            let q=j;
+                            if(subject2.startTime[j]<newOverlap.startTime[0]){
+                                subject2.startTime.splice(q+1,0,subject2.startTime[q]);
+                                subject2.endTime.splice(q+1,0,newOverlap.startTime[0]);
+                                q++;
+                            }
+                            if(subject2.endTime[j]>newOverlap.endTime[0]){
+                                subject2.startTime.splice(q+1,0,newOverlap.endTime[0]);
+                                subject2.endTime.splice(q+1,0,subject2.startTime[j]);
+                                q++;
+                            }
+                            if(q>j){
+                                subject2.startTime.splice(j,1);
+                                subject2.endTime.splice(j,1);
+
+                            }
+
+                            if (
+                                subject1.startTime[i] ===
+                                newOverlap.startTime[0]
+                            ) {
+                                subject1.startTime[i] = newOverlap.endTime[0];
+                            }
+                            if (
+                                subject2.startTime[j] ===
+                                newOverlap.startTime[0]
+                            ) {
+                                subject2.startTime[j] = newOverlap.endTime[0];
+                            }
+
+                            subject1.length[i] -= newOverlap.length[0];
+                            subject2.length[j] -= newOverlap.length[0];
+                            subject1.endTime[i] =
+                                subject1.startTime[i] + subject1.length[i];
+                            subject2.endTime[j] =
+                                subject2.startTime[j] + subject2.length[j];
+
+                            tableSubjects.push(newOverlap);
+                            //save tableSubjects
+                            const data = Array.from(
+                                new Set(tableSubjects.map(JSON.stringify))
+                            ).map(JSON.parse);
+                            localStorage.setItem(
+                                "table subjects",
+                                JSON.stringify(data)
+                            );
                         }
-                        if(subject2.startTime[j]===newOverlap.startTime){
-                            subject2.startTime[j]=newOverlap.endTime;
-                        }
-
-                        subject1.length[i]-=newOverlap.length;
-                        subject2.length[j]-=newOverlap.length;
-
-                        tableSubjects.push(newOverlap);
-                        //save tableSubjects
-                        const data= Array.from(new Set(tableSubjects.map(JSON.stringify))).map(JSON.parse);
-                        localStorage.setItem("table subjects",JSON.stringify(data));
-
-                    } 
-                  }
+                    }
                 }
-              }
-              return result;
             }
-            
-          </script>
-        </div>
+            return result;
+        }
+    </script>
+</div>
+<div>
+<body>
+    <div id="link_graph">
+        <a href="timeTable.html" target="_blank">그림으로 보기</a>
     </div>
 </body>
-<body>
-  <div id ="link_graph">
-    <a href="timeTable.html" target="_blank">그림으로 보기</a>
-  </div>
-</body>
-
 </html>
