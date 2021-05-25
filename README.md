@@ -10,7 +10,7 @@ Visit our website by clicking [HERE](https://steve30572.github.io/SKKU_TIMETABLE
 Or, you can visit our [repository](https://github.com/steve30572/SKKU_TIMETABLE) and check our github-pages.
 
 ## Usage Example(latest release:[v1.5.2](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.5.2))
-link to our [demonstration video](https://www.youtube.com/watch?v=7ZnklwRE0P8)
+Here is the link to our [demonstration video.](https://www.youtube.com/watch?v=7ZnklwRE0P8)
 ### initial screen 
 <p align="center">
   <img alt="Website inital screen" src="Initial Screen.PNG">
@@ -52,9 +52,25 @@ Overlapped classes are also shown, by striped cells.
 
 
 ## Release Notes
-### [v0.3.1](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v0.3.1)
-### [v1.3.4](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.3.4)
-### [v1.5.2](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.5.2)
+### [v0.3.1](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v0.3.1)  
+![image](https://user-images.githubusercontent.com/60357053/119495366-4d571580-bd9d-11eb-83d3-2901705575bd.png)   
+This is the template of our website. Only little interaction is available. 
+
+### [v1.3.4](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.3.4)  
+![image](https://user-images.githubusercontent.com/60357053/119495652-960ece80-bd9d-11eb-8885-85cea2166f60.png)  
+![image](https://user-images.githubusercontent.com/60357053/119496011-00277380-bd9e-11eb-92a0-46b577199870.png)
+
+Interactions like adding and deleting courses in backpack, viewing timetable based on the backpack is available! 
+
+### [v1.5.2](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.5.2)    
+![image](https://user-images.githubusercontent.com/60357053/119496349-601e1a00-bd9e-11eb-8485-3a7ad105123c.png)
+
+We styled the website with cool design!  
+Also, new features are added:    
+-showing the competition ratio on backpack section    
+-sorting the backpack by custom priority    
+Major and minor bugs(we found so far) are fixed. 
+
 
 ## Contributing
 
