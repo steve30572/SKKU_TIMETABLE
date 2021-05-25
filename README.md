@@ -64,6 +64,7 @@ Interactions like adding and deleting courses in backpack, viewing timetable bas
 
 ### [v1.5.2](https://github.com/steve30572/SKKU_TIMETABLE/releases/tag/v1.5.2)    
 ![image](https://user-images.githubusercontent.com/60357053/119496349-601e1a00-bd9e-11eb-8485-3a7ad105123c.png)
+![image](https://user-images.githubusercontent.com/60357053/119496816-d6bb1780-bd9e-11eb-9810-fa2e8d2bd6ef.png)
 
 We styled the website with cool design!  
 Also, new features are added:    
