@@ -73,451 +73,321 @@
                     />
                 </div>
             </div>
-            <table class="table" id="myTable">
-                <thead>
-                    <tr>
-                        <th scope="col">총 정원</th>
-                        <th scope="col">과목명</th>
-                        <th scope="col">교수명</th>
-                        <th scope="col">수업시간</th>
-                        <th scope="col">추가하기</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="OSS">
-                        <th scope="row" class="row-data">10</th>
-                        <td class="row-data">오픈소스실습</td>
-                        <td class="row-data">Mark</td>
-                        <td class="row-data">
-                            13:30~14:45(월),12:00~13:15(수)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="SP">
-                        <th scope="row" class="row-data">30</th>
-                        <td class="row-data">시스템 프로그램</td>
-                        <td class="row-data">Kim</td>
-                        <td class="row-data">9:00~12:00(월)</td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="Algo">
-                        <th scope="row" class="row-data">100</th>
-                        <td class="row-data">알고리즘개론</td>
-                        <td class="row-data">Lee</td>
-                        <td class="row-data">
-                            15:00~16:15(화),16:30~17:45(목)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="EW">
-                        <th scope="row" class="row-data">20</th>
-                        <td class="row-data">영어쓰기</td>
-                        <td class="row-data">Jack</td>
-                        <td class="row-data">12:00~14:45(월)</td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="SWE">
-                        <th scope="row" class="row-data">80</th>
-                        <td class="row-data">소프트웨어공학개론</td>
-                        <td class="row-data">Park</td>
-                        <td class="row-data">12:00~15:00(수)</td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="DB">
-                        <th scope="row" class="row-data">90</th>
-                        <td class="row-data">데이터베이스</td>
-                        <td class="row-data">Phil</td>
-                        <td class="row-data">
-                            13:30~14:45(월),12:00~13:15(수)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="SD">
-                        <th scope="row" class="row-data">40</th>
-                        <td class="row-data">스피치와토론</td>
-                        <td class="row-data">Kate</td>
-                        <td class="row-data">
-                            16:30~17:45(화),15:00~16:15(목)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="physics">
-                        <th scope="row" class="row-data">56</th>
-                        <td class="row-data">일반물리학1</td>
-                        <td class="row-data">Vray</td>
-                        <td class="row-data">
-                            13:30~14:45(월),12:00~13:15(수)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="Calculus">
-                        <th scope="row" class="row-data">75</th>
-                        <td class="row-data">미적분학1</td>
-                        <td class="row-data">James</td>
-                        <td class="row-data">
-                            16:30~17:45(화),15:00~16:15(목)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="Chemis">
-                        <th scope="row" class="row-data">60</th>
-                        <td class="row-data">일반화학1</td>
-                        <td class="row-data">Kyle</td>
-                        <td class="row-data">12:00~15:00(금)</td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="Structure">
-                        <th scope="row" class="row-data">40</th>
-                        <td class="row-data">자료구조개론</td>
-                        <td class="row-data">Jamal</td>
-                        <td class="row-data">9:00~12:00(수)</td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="CN">
-                        <th scope="row" class="row-data">82</th>
-                        <td class="row-data">컴퓨터네트워크개론</td>
-                        <td class="row-data">Bob</td>
-                        <td class="row-data">
-                            15:00~16:15(화),16:30~17:45(목)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                    <tr id="sw">
-                        <th scope="row" class="row-data">50</th>
-                        <td class="row-data">과학기술글쓰기</td>
-                        <td class="row-data">Charles</td>
-                        <td class="row-data">
-                            16:30~17:45(화),15:00~16:15(목)
-                        </td>
-                        <td>
-                            <button
-                                class="btn btn-outline-primary"
-                                class="to_backpack"
-                                onclick="show()"
-                            >
-                                추가하기
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+          </div>
+    <table class="table" id="myTable">
+        <thead>
+          <tr>
+            <th scope="col">총 정원</th>
+            <th scope="col">과목명</th>
+            <th scope="col">교수명</th>
+            <th scope="col">수업시간</th>
+            <th scope="col">추가하기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="OSS">
+            <th scope="row" class="row-data">10</th>
+            <td class="row-data">오픈소스실습</td>
+            <td class="row-data">Mark</td>
+            <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="SP">
+            <th scope="row" class="row-data">30</th>
+            <td class="row-data">시스템 프로그램</td>
+            <td class="row-data">Kim</td>
+            <td class="row-data">9:00~12:00(월)</td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="Algo">
+            <th scope="row" class="row-data">100</th>
+            <td class="row-data" >알고리즘개론</td>
+            <td class="row-data">Lee</td>
+            <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="EW">
+            <th scope="row" class="row-data">20</th>
+            <td class="row-data">영어쓰기</td>
+            <td class="row-data">Jack</td>
+            <td class="row-data">12:00~14:45(월)</td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="SWE">
+            <th scope="row" class="row-data">80</th>
+            <td class="row-data">소프트웨어공학개론</td>
+            <td class="row-data">Park</td>
+            <td class="row-data">12:00~15:00(수)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="DB">
+            <th scope="row" class="row-data">90</th>
+            <td class="row-data">데이터베이스</td>
+            <td class="row-data">Phil</td>
+            <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="SD">
+            <th scope="row" class="row-data">40</th>
+            <td class="row-data">스피치와토론</td>
+            <td class="row-data">Kate</td>
+            <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="physics">
+            <th scope="row" class="row-data">56</th>
+            <td class="row-data">일반물리학1</td>
+            <td class="row-data">Vray</td>
+            <td class="row-data">13:30~14:45(월),12:00~13:15(수)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="Calculus">
+            <th scope="row" class="row-data">75</th>
+            <td class="row-data">미적분학1</td>
+            <td class="row-data">James</td>
+            <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="Chemis">
+            <th scope="row" class="row-data">60</th>
+            <td class="row-data">일반화학1</td>
+            <td class="row-data">Kyle</td>
+            <td class="row-data">12:00~15:00(금)</td>
+            <td><button class="btn btn-outline-primary" class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="Structure">
+            <th scope="row" class="row-data">40</th>
+            <td class="row-data">자료구조개론</td>
+            <td class="row-data">Jamal</td>
+            <td class="row-data">9:00~12:00(수)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="CN">
+            <th scope="row" class="row-data">82</th>
+            <td class="row-data">컴퓨터네트워크개론</td>
+            <td class="row-data">Bob</td>
+            <td class="row-data">15:00~16:15(화),16:30~17:45(목)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          <tr id="sw">
+            <th scope="row" class="row-data">50</th>
+            <td class="row-data">과학기술글쓰기</td>
+            <td class="row-data">Charles</td>
+            <td class="row-data">16:30~17:45(화),15:00~16:15(목)</td>
+            <td><button class="btn btn-outline-primary"class="to_backpack" onclick="show()">+</button></td>
+          </tr>
+          
+          
+          
+          
+        </tbody>
+      </table>
+    </div>
+    
+      <script>
+        window.addEventListener("load",()=>{
+            loadTasks();
+        })
+        
+        let tasks=[];
 
-        <script>
-            window.addEventListener("load", () => {
-                loadTasks();
-            });
+        function saveTasks(){
+            const data= Array.from(new Set(tasks.map(JSON.stringify))).map(JSON.parse);
+            localStorage.setItem("tasks",JSON.stringify(data));
+            manageOverlap();
+        }
+        function loadTasks(){
+            let lastTasks=localStorage.getItem("tasks");
+            
+            if(!lastTasks) return;
+            tasks=JSON.parse(lastTasks);
+            
+            tasks.forEach(addtobp);
+          }
+        function addtobp(T){
+          var body=document.querySelector("#backpack");
+          var tbody=body.getElementsByTagName('tbody')[0];
+          var row=tbody.insertRow(tbody.rows.length);
+          var amount=row.insertCell(0);
+          var course_name=row.insertCell(1);
+          var professor_name=row.insertCell(2);
+          var class_time=row.insertCell(3);
+          var priority=row.insertCell(4);
+          var button=row.insertCell(5);
+          console.log("this is T")
+          console.log(T);
+          amount.innerHTML=T['amount'];
+          course_name.innerHTML=T["name"];
+          professor_name.innerHTML=T["professor"];
+          class_time.innerHTML=T['time'];
+          priority.innerHTML=`<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;" value= ${T["priority"]}> `;
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>'
+          //manageOverlap();
 
-            let tasks = [];
+        }
+        function show(){
+          var ID=event.target.parentNode.parentNode.id;
+          var data=document.getElementById(ID).querySelectorAll(".row-data");
+          console.log(data[0].innerHTML);
+          var priority=Math.round(Math.random()*3* 100)/100;
+          let task={
+              amount:priority,
+              name: data[1].innerHTML,
+              professor:data[2].innerHTML,
+              time:data[3].innerHTML,
+              priority: '0'
+          }
+          const dup=tasks.some(el=>el.name===data[1].innerHTML && el.professor===data[2].innerHTML )
+          if(dup){
+              console.log("dup");
+          }
+          else{
+            var body=document.querySelector("#backpack");
+          var tbody=body.getElementsByTagName('tbody')[0];
+          console.log(tbody);
+          var row=tbody.insertRow(tbody.rows.length);
+          var amount=row.insertCell(0);
+          var course_name=row.insertCell(1);
+          var professor_name=row.insertCell(2);
+          var class_time=row.insertCell(3);
+          var priority=row.insertCell(4);
+          var button=row.insertCell(5);
 
-            function saveTasks() {
-                const data = Array.from(new Set(tasks.map(JSON.stringify))).map(
-                    JSON.parse
-                );
-                localStorage.setItem("tasks", JSON.stringify(data));
-                manageOverlap();
-            }
-            function loadTasks() {
-                let lastTasks = localStorage.getItem("tasks");
+          amount.innerHTML=task.amount;
+          course_name.innerHTML=data[1].innerHTML;
+          professor_name.innerHTML=data[2].innerHTML;
+          class_time.innerHTML=data[3].innerHTML;
+          priority.innerHTML='<input type="string" id="myInput_Priority"class="form-control" style="width:50px;height:30px;font-size:10px;"  value = "0"   >';
+          button.innerHTML='<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
+          tasks.push(task);
+          saveTasks();
+          //manageOverlap();
+          }
+          //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
 
-                if (!lastTasks) return;
-                tasks = JSON.parse(lastTasks);
+        }
+          function myFunction_Name() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput_Name");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
 
-                tasks.forEach(addtobp);
-            }
-            function addtobp(T) {
-                var body = document.querySelector("#backpack");
-                var tbody = body.getElementsByTagName("tbody")[0];
-                var row = tbody.insertRow(tbody.rows.length);
-                var amount = row.insertCell(0);
-                var course_name = row.insertCell(1);
-                var professor_name = row.insertCell(2);
-                var class_time = row.insertCell(3);
-                var button = row.insertCell(4);
-                console.log("this is T");
-                console.log(T);
-                amount.innerHTML = T["amount"];
-                course_name.innerHTML = T["name"];
-                professor_name.innerHTML = T["professor"];
-                class_time.innerHTML = T["time"];
-                button.innerHTML =
-                    '<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
-                //manageOverlap();
-            }
-            function show() {
-                var ID = event.target.parentNode.parentNode.id;
-                var data = document
-                    .getElementById(ID)
-                    .querySelectorAll(".row-data");
-                console.log(data[0].innerHTML);
-                let task = {
-                    amount: data[0].innerHTML,
-                    name: data[1].innerHTML,
-                    professor: data[2].innerHTML,
-                    time: data[3].innerHTML,
-                };
-                const dup = tasks.some(
-                    (el) =>
-                        el.name === data[1].innerHTML &&
-                        el.professor === data[2].innerHTML
-                );
-                if (dup) {
-                    console.log("dup");
-                } else {
-                    var body = document.querySelector("#backpack");
-                    var tbody = body.getElementsByTagName("tbody")[0];
-                    console.log(tbody);
-                    var row = tbody.insertRow(tbody.rows.length);
-                    var amount = row.insertCell(0);
-                    var course_name = row.insertCell(1);
-                    var professor_name = row.insertCell(2);
-                    var class_time = row.insertCell(3);
-                    var button = row.insertCell(4);
-                    amount.innerHTML = data[0].innerHTML;
-                    course_name.innerHTML = data[1].innerHTML;
-                    professor_name.innerHTML = data[2].innerHTML;
-                    class_time.innerHTML = data[3].innerHTML;
-                    button.innerHTML =
-                        '<button type ="button" onclick="deleteRow(this)"class="btn btn-outline-danger">X</button>';
-                    tasks.push(task);
-                    saveTasks();
-                    //manageOverlap();
-                }
-                //여기다가 책가방 쪽에다가 추가하는 기능 만들기//
-            }
-            function myFunction_Name() {
-                // Declare variables
-                var input, filter, table, tr, td, i, txtValue;
-                input = document.getElementById("myInput_Name");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function myFunction_Professor() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput_Professor");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
 
-                // Loop through all table rows, and hide those who don't match the search query
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[0];
-                    if (td) {
-                        txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-            function myFunction_Professor() {
-                // Declare variables
-                var input, filter, table, tr, td, i, txtValue;
-                input = document.getElementById("myInput_Professor");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 
-                // Loop through all table rows, and hide those who don't match the search query
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[1];
-                    if (td) {
-                        txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        </script>
-    </body>
-    <body>
-        <hr />
-        <div id="back_pack">
-            <table id="backpack" table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>
-                            총 정원 <button onclick="sortTD ( 2 )">▲</button
-                            ><button onclick="reverseTD ( 2 )">▼</button>
-                        </th>
-                        <th>
-                            과목명 <button onclick="sortTD ( 0 )">▲</button
-                            ><button onclick="reverseTD ( 0 )">▼</button>
-                        </th>
-                        <th>
-                            교수명 <button onclick="sortTD ( 1 )">▲</button
-                            ><button onclick="reverseTD ( 1 )">▼</button>
-                        </th>
-                        <th>
-                            수업시간 <button onclick="sortTD ( 3 )">▲</button
-                            ><button onclick="reverseTD ( 3 )">▼</button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+}
+      </script>
+</body>
+<body>
+    <hr>
+    <div id="back_pack">
 
-        <script type="text/javascript">
-            var myTable = document.getElementById("backpack");
-            var replace = replacement(myTable);
-            var eventTarget = document.getElementsByClassName("delete");
-            function sortTD(index) {
-                sortTable("backpack", index);
-            }
-            function reverseTD(index) {
-                sortTable("backpack", index, true);
-            }
-            function deleteRow(obj) {
-                manageOverlap();
-                var tr = obj.parentNode.parentNode;
+    <table id="backpack" table class = "table table-striped">
+      <thead>
+        <tr>
+          <th> 총 정원    <button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>
+         <th> 과목명       <button onclick="sortTD ( 0 )">▲</button><button onclick="reverseTD ( 0 )">▼</button></th>
+         <th> 교수명 <button onclick="sortTD ( 1 )">▲</button><button onclick="reverseTD ( 1 )">▼</button></th>
+         <th> 수업시간    <button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+         <th> 우선순위<button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    
+     
+    </div>
+    
+    <script type="text/javascript">
+       var myTable = document.getElementById( "backpack" ); 
+    var replace = replacement( myTable ); 
+    var eventTarget = document.getElementsByClassName('delete')
+    function sortTD( index ){   sortTable('backpack',index);     } 
+    function reverseTD( index ){    sortTable('backpack',index,true);   } 
+    function deleteRow(obj){  
+        manageOverlap(); 
+      var tr = obj.parentNode.parentNode;
+     
+      tr.parentNode.removeChild(tr);
+     let task={
+       amount: tr.cells[0].innerHTML,
+       name: tr.cells[1].innerHTML,
+       professor: tr.cells[2].innerHTML,
+       time: tr.cells[3].innerHTML
+     };
+     console.log(task);
 
-                tr.parentNode.removeChild(tr);
-                let task = {
-                    amount: tr.cells[0].innerHTML,
-                    name: tr.cells[1].innerHTML,
-                    professor: tr.cells[2].innerHTML,
-                    time: tr.cells[3].innerHTML,
-                };
-                console.log(task);
+     tasks = tasks.filter(t => t.name !== task.name || t.professor !== task.professor || t.time !==task.time);
+     //tasks.pop(tr); 
+     saveTasks(); 
+}
+function sortTable(tblID, col, desc) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    col = (col || 0);
+    table = document.getElementById(tblID);
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[col];
+        y = rows[i + 1].getElementsByTagName("TD")[col];
+        if ((desc)? x.textContent.toLowerCase() < y.textContent.toLowerCase() : x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+ 
 
-                tasks = tasks.filter(
-                    (t) =>
-                        t.name !== task.name ||
-                        t.amount !== task.amount ||
-                        t.professor !== task.professor ||
-                        t.time !== task.time
-                );
-                //tasks.pop(tr);
-                saveTasks();
-            }
-            function sortTable(tblID, col, desc) {
-                var table, rows, switching, i, x, y, shouldSwitch;
-                col = col || 0;
-                table = document.getElementById(tblID);
-                switching = true;
-                while (switching) {
-                    switching = false;
-                    rows = table.rows;
-                    for (i = 1; i < rows.length - 1; i++) {
-                        shouldSwitch = false;
-                        x = rows[i].getElementsByTagName("TD")[col];
-                        y = rows[i + 1].getElementsByTagName("TD")[col];
-                        if (
-                            desc
-                                ? x.textContent.toLowerCase() <
-                                  y.textContent.toLowerCase()
-                                : x.textContent.toLowerCase() >
-                                  y.textContent.toLowerCase()
-                        ) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                    if (shouldSwitch) {
-                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                        switching = true;
-                    }
-                }
-            }
-        </script>
-    </body>
 
+
+
+      </script>
+</body>  
+    
+    
+    
     <div id="overlap" class="p-3 mb-2 bg-light text-dark">
         <h2>겹치는 과목</h2>
         <div id="overlapMessage"></div>
